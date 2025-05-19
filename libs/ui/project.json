@@ -6,6 +6,17 @@
   "projectType": "library",
   "tags": ["ui"],
   "targets": {
+    "build": {
+      "options": {
+        "assets": [
+          {
+            "glob": "**/*.scss",
+            "input": "libs/ui/src/lib/styles",
+            "output": "./styles"
+          }
+        ]
+      }
+    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { LayoutComponentComponent } from './layout/layout.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [LayoutComponentComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'frontend';
+  constructor(private translate: TranslateService) {
+    this.translate.addLangs(['es', 'en']);
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
 }

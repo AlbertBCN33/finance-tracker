@@ -1,3 +1,6 @@
+/* General */
+export * from './entities';
+
 /* Finnhub */
 export * from './finnhub/quote';
 export * from './finnhub/exchange';

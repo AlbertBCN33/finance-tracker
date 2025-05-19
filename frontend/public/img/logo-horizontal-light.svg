@@ -1,0 +1,19 @@
+<svg width="250" height="60" viewBox="0 0 250 60" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Compass circle -->
+  <circle cx="30" cy="30" r="22" fill="#f0f4f8" stroke="#2c7be5" stroke-width="2" />
+
+  <!-- Compass needle -->
+  <polygon points="30,12 33,30 30,48 27,30" fill="#2c7be5" />
+
+  <!-- Candlestick bars inside compass -->
+  <rect x="21" y="28" width="2" height="8" fill="#2c7be5" rx="1"/>
+  <rect x="26" y="24" width="2" height="12" fill="#2c7be5" rx="1"/>
+  <rect x="31" y="20" width="2" height="16" fill="#2c7be5" rx="1"/>
+  <rect x="36" y="25" width="2" height="11" fill="#2c7be5" rx="1"/>
+  <rect x="41" y="30" width="2" height="6" fill="#2c7be5" rx="1"/>
+
+  <!-- Text -->
+  <text x="70" y="36" font-family="Segoe UI, sans-serif" font-size="20" fill="#2c3e50">
+    Finance <tspan font-weight="bold" fill="#2c7be5">Tracker</tspan>
+  </text>
+</svg>

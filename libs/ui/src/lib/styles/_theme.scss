@@ -1,0 +1,20 @@
+@import "primeicons/primeicons.css";
+@import './_theme-light'; // Light theme
+@import './_theme-dark'; // Dark theme
+
+/* Base styles */
+$fontFamily: 'Segoe UI', 'Roboto', sans-serif;
+
+body {
+	font-family: $fontFamily;
+	margin: 0;
+	padding: 0;
+}
+
+// Apply light theme by default
+@include light-theme;
+
+// Apply dark theme when user prefers dark mode
+@media (prefers-color-scheme: dark) {
+	@include dark-theme;
+}
