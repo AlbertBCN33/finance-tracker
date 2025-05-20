@@ -3,6 +3,8 @@ import {
   QuoteRequest,
   StockSymbol,
   StockSymbolRequest,
+  SymbolRequest,
+  SymbolResponse,
 } from '@finance-tracker/models';
 import { FinnhubUtils } from '@finance-tracker/utils';
 import * as finnhub from 'finnhub';
@@ -12,6 +14,57 @@ const api_key = finnhub.ApiClient.instance.authentications['api_key'];
 api_key.apiKey = process.env.FINNHUB_API_KEY;
 
 const client = new finnhub.DefaultApi();
+
+/**
+ * Symbols
+ *
+ * @description Search for best-matching symbols based on your query. You can input anything from symbol, security's name to ISIN and Cusip.
+ * @async
+ * @function getSymbols
+ * @param {SymbolRequest} request Request parameters
+ * @return {Promise<SymbolResponse>}
+ */
+const getSymbols = async (request: SymbolRequest): Promise<SymbolResponse> => {
+  return new Promise((resolve, reject) => {
+    client.symbolSearch(
+      request.q,
+      request.exchange,
+      (error: string, data: SymbolResponse, _response: string) => {
+        if (error) {
+          console.error(
+            `[finnhub] Failed to fetch symbols for ${request.q}:`,
+            error
+          );
+          reject(
+            new ApiErrorResponse(
+              500,
+              'STOCKS',
+              'STOCKS.GET_SYMBOLS.ERROR',
+              error
+            )
+          );
+        } else {
+          console.log(
+            `[Finnhub] Successfully fetched symbols for ${request.q}:`,
+            data
+          );
+          if (data.count > 1) {
+            resolve(data);
+          } else {
+            reject(
+              new ApiErrorResponse(
+                404,
+                'STOCKS',
+                'STOCKS.GET_SYMBOLS.NOT_FOUND',
+                error
+              )
+            );
+          }
+        }
+      }
+    );
+  });
+};
 
 /**
  * Quote
@@ -103,6 +156,7 @@ const getStockSymbols = async (
 };
 
 export const FinnhubService = {
+  getSymbols,
   getQuote,
   getStockSymbols,
 };

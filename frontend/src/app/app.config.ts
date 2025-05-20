@@ -6,6 +6,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import { appRoutes } from './app.routes';
+import { environment } from '../environments/environment';
+import { API_URL } from '@finance-tracker/data-access';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (
   http: HttpClient
@@ -15,6 +17,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
+    { provide: API_URL, useValue: environment.API_URL },
     provideHttpClient(),
     provideTranslateService({
       defaultLanguage: 'en',

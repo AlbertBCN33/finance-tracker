@@ -3,10 +3,26 @@ import {
   QuoteRequest,
   StockSymbol,
   StockSymbolRequest,
+  Symbol,
+  SymbolRequest,
 } from '@finance-tracker/models';
 import { FinnhubService } from './finnhub.service';
 
 class StocksService {
+  /**
+   * Symbols
+   *
+   * @description Search for best-matching symbols based on your query. You can input anything from symbol, security's name to ISIN and Cusip.
+   * @async
+   * @function getSymbols
+   * @param {SymbolRequest} request Request parameters
+   * @return {Promise<Symbol[]>}
+   */
+  getSymbols = async (request: SymbolRequest): Promise<Symbol[]> => {
+    const res = await FinnhubService.getSymbols(request);
+    return res.result;
+  };
+
   /**
    * Quote
    *

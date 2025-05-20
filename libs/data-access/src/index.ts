@@ -1,1 +1,2 @@
-export * from './lib/data-access/data-access.component';
+export * from './lib/api-client/api-client.service';
+export * from './lib/api-routes/api-routes.service';

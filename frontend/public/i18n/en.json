@@ -1,14 +1,16 @@
 {
   "INDEX_FUNDS": {
-    "TITLE_HEADER": "Index funds"
+    "HEADER_TITLE": "Index funds"
   },
   "NEWS": {
-    "TITLE_HEADER": "News"
+    "HEADER_TITLE": "News"
   },
   "STOCKS": {
-    "TITLE_HEADER": "Stocks"
+    "HEADER_TITLE": "Stocks",
+    "PAGE_TITLE": "Stocks",
+    "PAGE_SUBTITLE": "Search for best-matching stock symbols, and view a list of supported stocks with real-time data."
   },
   "WHISHLISTS": {
-    "TITLE_HEADER": "Whishlists"
+    "HEADER_TITLE": "Whishlists"
   }
 }

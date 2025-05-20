@@ -5,11 +5,39 @@ import {
   QuoteRequest,
   StockSymbol,
   StockSymbolRequest,
+  Symbol,
+  SymbolRequest,
 } from '@finance-tracker/models';
 import { ApiResponse } from '../models/api-response';
 
 class StocksController {
   service = new StocksService();
+
+  /**
+   * Symbols
+   *
+   * @description Search for best-matching symbols based on your query. You can input anything from symbol, security's name to ISIN and Cusip.
+   * @async
+   * @function getSymbol
+   */
+  getSymbols = async (
+    req: Request<unknown, unknown, unknown, SymbolRequest>,
+    res: Response<ApiResponse<Symbol[]>>,
+    next: NextFunction
+  ) => {
+    try {
+      const { q, exchange } = req.query;
+      const data = await this.service.getSymbols({ q, exchange });
+      return res.json({
+        success: true,
+        name: 'STOCKS',
+        message: 'STOCKS.GET_SYMBOLS.SUCCESS',
+        data,
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
 
   /**
    * Quote

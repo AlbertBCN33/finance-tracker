@@ -1,14 +1,14 @@
 {
   "INDEX_FUNDS": {
-    "TITLE_HEADER": "Fondos indexados"
+    "HEADER_TITLE": "Fondos indexados"
   },
   "NEWS": {
-    "TITLE_HEADER": "Noticias"
+    "HEADER_TITLE": "Noticias"
   },
   "STOCKS": {
-    "TITLE_HEADER": "Stocks"
+    "HEADER_TITLE": "Stocks"
   },
   "WHISHLISTS": {
-    "TITLE_HEADER": "Listas seguimiento"
+    "HEADER_TITLE": "Listas seguimiento"
   }
 }
