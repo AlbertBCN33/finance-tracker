@@ -23,7 +23,11 @@
       "SECTION_TITLE": "Symbol lookup",
       "SECTION_SUBTITLE": "Search for best-matching symbols based on your query. You can input anything from symbol, security's name to ISIN and Cusip.",
       "FORM_FIELD.SYMBOL.LABEL": "Search",
-      "FORM_FIELD.SYMBOL.PLACEHOLDER": "Symbol, name, isin, or cusip"
+      "FORM_FIELD.SYMBOL.PLACEHOLDER": "Symbol, name, isin, or cusip",
+      "EXACT_MATCH": "Exact match",
+      "EXACT_MATCH_EMPTY": "No exact match found.",
+      "BEST_MATCHES": "Best matches",
+      "BEST_MATCHES_EMPTY": "There are no matches."
     }
   },
   "WHISHLISTS": {

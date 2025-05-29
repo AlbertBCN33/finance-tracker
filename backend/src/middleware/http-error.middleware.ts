@@ -1,5 +1,5 @@
+import { ApiError } from '@finance-tracker/models';
 import { Request, Response, NextFunction } from 'express';
-import { ApiError } from '../models/api-response';
 
 export function errorHandler(
   err: ApiError,

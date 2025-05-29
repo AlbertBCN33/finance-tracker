@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import StocksService from '../services/stocks.service';
 import {
+  ApiResponse,
   Quote,
   QuoteRequest,
   StockSymbol,
@@ -8,7 +9,6 @@ import {
   Symbol,
   SymbolRequest,
 } from '@finance-tracker/models';
-import { ApiResponse } from '../models/api-response';
 
 class StocksController {
   service = new StocksService();

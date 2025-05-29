@@ -1,4 +1,5 @@
 import {
+  ApiErrorResponse,
   Quote,
   QuoteRequest,
   StockSymbol,
@@ -8,7 +9,6 @@ import {
 } from '@finance-tracker/models';
 import { FinnhubUtils } from '@finance-tracker/utils';
 import * as finnhub from 'finnhub';
-import { ApiErrorResponse } from '../models/api-response';
 
 const api_key = finnhub.ApiClient.instance.authentications['api_key'];
 api_key.apiKey = process.env.FINNHUB_API_KEY;
