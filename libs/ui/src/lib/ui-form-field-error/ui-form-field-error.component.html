@@ -1,0 +1,10 @@
+@if (
+	form.controls[controlName].errors &&
+	(form.controls[controlName].dirty || form.controls[controlName].touched)
+) {
+	@for (error of form.controls[controlName].errors | keyvalue; track error) {
+		<small class="d-block p-error">
+			{{error.value | translate}}
+		</small>
+	}
+}

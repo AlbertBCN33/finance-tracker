@@ -10,6 +10,6 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './ui-card.component.scss',
 })
 export class UiCardComponent {
-  title = input<string>('');
-  text = input<string>('');
+  title = input.required<string>();
+  subtitle = input<string>();
 }

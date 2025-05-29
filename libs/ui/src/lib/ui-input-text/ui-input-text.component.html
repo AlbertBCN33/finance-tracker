@@ -1,0 +1,21 @@
+<lib-ui-form-field
+	[form]="form"
+	[controlName]="controlName"
+	[id]="id"
+	[label]="label">
+
+	<p-inputgroup [formGroup]="form">
+		<p-inputgroup-addon>www</p-inputgroup-addon>
+		<input 
+			pInputText 
+			type="text"
+			[id]="id"
+			[name]="controlName"
+			[formControlName]="controlName"
+			[placeholder]="placeholder ? (placeholder | translate) : undefined"
+			[attr.disabled]="disabled()"
+		/>
+		<p-inputgroup-addon>aa</p-inputgroup-addon>
+	</p-inputgroup>
+
+</lib-ui-form-field>

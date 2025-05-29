@@ -8,7 +8,13 @@
   "STOCKS": {
     "HEADER_TITLE": "Stocks",
     "PAGE_TITLE": "Stocks",
-    "PAGE_SUBTITLE": "Search for best-matching stock symbols, and view a list of supported stocks with real-time data."
+    "PAGE_SUBTITLE": "Search for best-matching stock symbols, and view a list of supported stocks with real-time data.",
+    "SYMBOL_SEARCH": {
+      "SECTION_TITLE": "Symbol lookup",
+      "SECTION_SUBTITLE": "Search for best-matching symbols based on your query. You can input anything from symbol, security's name to ISIN and Cusip.",
+      "FORM_FIELD.SYMBOL.LABEL": "Search",
+      "FORM_FIELD.SYMBOL.PLACEHOLDER": "Symbol, name, isin, or cusip"
+    }
   },
   "WHISHLISTS": {
     "HEADER_TITLE": "Whishlists"

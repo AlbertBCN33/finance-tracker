@@ -1,0 +1,14 @@
+<div class="ui-form-field">
+	<!-- Label -->
+	@if (label) {
+		<div class="">
+			<label [for]="id">{{ label | translate}}</label>
+		</div>
+	}
+
+	<!-- Form field -->
+	<ng-content></ng-content>
+
+	<!-- Errors -->
+	<lib-ui-form-field-error [form]="form" [controlName]="controlName" />
+</div>
