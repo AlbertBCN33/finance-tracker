@@ -10,6 +10,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { FormFieldAddon, FormFieldAddonType } from '@finance-tracker/models';
 
 @Component({
   selector: 'app-stock-symbol-search',
@@ -24,13 +25,15 @@ import {
 })
 export class StockSymbolSearchComponent implements OnInit, OnDestroy {
   private unsubscribe = new Subject<void>();
-  fb: FormBuilder = new FormBuilder();
+  private fb: FormBuilder = new FormBuilder();
+
   form: FormGroup = this.fb.group({
-    symbol: new FormControl(undefined, [
-      Validators.required,
-      Validators.minLength(4),
-    ]),
+    symbol: new FormControl(undefined, [Validators.minLength(4)]),
   });
+  leftAddon: FormFieldAddon = {
+    type: FormFieldAddonType.ICON,
+    icon: 'pi pi-search',
+  };
 
   constructor(private apiService: ApiRoutesService) {}
 

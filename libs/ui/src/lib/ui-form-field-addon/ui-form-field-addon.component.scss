@@ -1,0 +1,44 @@
+.p-inputgroupaddon + .p-inputtext {
+	border-left: none;
+}
+
+.p-inputgroupaddon ~ .p-inputtext {
+	border-right: none;
+}
+
+// Both addons
+::ng-deep .p-inputgroup:hover .p-inputgroupaddon {
+	border-block-end-color: var(--p-inputtext-hover-border-color);
+	border-block-start-color: var(--p-inputtext-hover-border-color);
+	border-inline-end-color: var(--p-inputtext-hover-border-color);
+	border-inline-start-color: var(--p-inputtext-hover-border-color);
+}
+
+// Both addons: invalid
+::ng-deep .p-inputgroup.ng-dirty.ng-invalid .p-inputgroupaddon {
+	border-block-end-color: var(--p-inputtext-invalid-border-color);
+	border-block-start-color: var(--p-inputtext-invalid-border-color);
+	border-inline-end-color: var(--p-inputtext-invalid-border-color);
+	border-inline-start-color: var(--p-inputtext-invalid-border-color);
+}
+
+// Right addon: hover
+::ng-deep .p-inputtext:enabled:hover + .p-inputgroupaddon {
+	border-block-end-color: var(--p-inputtext-hover-border-color);
+	border-block-start-color: var(--p-inputtext-hover-border-color);
+	border-inline-end-color: var(--p-inputtext-hover-border-color);
+}
+
+// Right addon: focus
+::ng-deep .p-inputtext:enabled:focus + .p-inputgroupaddon {
+	border-block-end-color: var(--p-inputtext-focus-border-color);
+	border-block-start-color: var(--p-inputtext-focus-border-color);
+	border-inline-end-color: var(--p-inputtext-focus-border-color);
+}
+
+// Right addon: invalid
+::ng-deep .p-inputtext.ng-invalid.ng-dirty  +.p-inputgroupaddon {
+	border-block-end-color: var(--p-inputtext-invalid-border-color);
+	border-block-start-color: var(--p-inputtext-invalid-border-color);
+	border-inline-end-color: var(--p-inputtext-invalid-border-color);
+}

@@ -22,4 +22,5 @@ export class UiFormFieldComponent implements Partial<FormField> {
   @Input() controlName!: string;
   @Input() id = '';
   @Input() label: string | undefined = undefined;
+  @Input() cssClass?: string;
 }

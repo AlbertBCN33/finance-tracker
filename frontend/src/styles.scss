@@ -14,5 +14,70 @@ body {
 	background-color: #f6f6f6;
 }
 
+.grid {
+	display: grid
+}
+
+.grid-cols-1 {
+	grid-template-columns: repeat(1, minmax(0, 1fr))
+}
+
+.grid-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr))
+}
+
+.grid-cols-3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr))
+}
+
+.grid-cols-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr))
+}
+
+.grid-cols-12 {
+	grid-template-columns: repeat(12, minmax(0, 1fr))
+}
+
+.gap-1 {
+	gap: .25rem
+}
+
+.gap-2 {
+	gap: .5rem
+}
+
+.gap-3 {
+	gap: .75rem
+}
+
+.gap-4 {
+	gap: 1rem
+}
+
+.gap-5 {
+	gap: 1.25rem
+}
+
+.gap-6 {
+	gap: 1.5rem
+}
+
+.gap-7 {
+	gap: 1.75rem
+}
+
+.gap-8 {
+	gap: 2rem
+}
+
+.gap-9 {
+	gap: 2.25rem
+}
+
+.gap-10 {
+	gap: 2.5rem
+}
+
+
 // TODO: Move theme to the UI library and import it here
 // @import "@finance-tracker/ui/styles/main";

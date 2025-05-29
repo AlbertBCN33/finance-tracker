@@ -1,0 +1,17 @@
+@switch (addon.type) {
+	@case (FormFieldAddonType.ICON) {
+		<i [class]="addon.icon"></i>
+	}
+	@case (FormFieldAddonType.BUTTON) {
+		<p-button 
+			type="button"
+			variant="text"
+			[id]='addon.button.id'
+			[icon]="addon.button.icon"  
+			[label]="addon.button.label"
+			(click)="addon.button.onClick($event)" />
+	}
+	@case (FormFieldAddonType.TEXT) {
+		<span>{{ addon.text | translate }}</span>
+	}
+}

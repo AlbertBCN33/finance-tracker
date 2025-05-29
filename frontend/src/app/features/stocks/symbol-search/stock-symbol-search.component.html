@@ -2,18 +2,18 @@
 	title="STOCKS.SYMBOL_SEARCH.SECTION_TITLE"
 	subtitle="STOCKS.SYMBOL_SEARCH.SECTION_SUBTITLE">
 
+	<!-- Search -->
 	<form [formGroup]="form">
 		<lib-ui-input-text 
 			id="input-symbol" 
 			[form]="form"
 			controlName="symbol" 
 			placeholder="STOCKS.SYMBOL_SEARCH.FORM_FIELD.SYMBOL.PLACEHOLDER"
+			[leftAddon]="leftAddon"
+			cssClass="grid grid-cols-3 gap-4"
 		/>
-
-		form.invalid = {{form.invalid}}<br />
-		form.value = {{form.value | json}}<br />
-		form.errors = {{form.errors | json}}<br />
-		field.invalid = {{form.get('symbol')?.invalid}}<br />
 	</form>
+
+	
 
 </lib-ui-card>

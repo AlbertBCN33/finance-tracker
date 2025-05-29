@@ -2,10 +2,19 @@
 	[form]="form"
 	[controlName]="controlName"
 	[id]="id"
-	[label]="label">
+	[label]="label"
+	[cssClass]="cssClass">
 
-	<p-inputgroup [formGroup]="form">
-		<p-inputgroup-addon>www</p-inputgroup-addon>
+	<p-inputgroup 
+		[formGroup]="form" 
+		[ngClass]="{
+			'ng-dirty': form.get(controlName)?.invalid && (form.get(controlName)?.dirty || form.get(controlName)?.touched)
+		}">
+		@if (leftAddon) {
+			<p-inputgroup-addon>
+				<lib-ui-form-field-addon [addon]="leftAddon" />
+			</p-inputgroup-addon>
+		}
 		<input 
 			pInputText 
 			type="text"
@@ -19,7 +28,11 @@
 			[attr.disabled]="disabled()"
 			[pSize]="size"
 		/>
-		<p-inputgroup-addon>aa</p-inputgroup-addon>
+		@if (rightAddon) {
+			<p-inputgroup-addon>
+				<lib-ui-form-field-addon [addon]="rightAddon" />
+			</p-inputgroup-addon>
+		}
 	</p-inputgroup>
 
 </lib-ui-form-field>

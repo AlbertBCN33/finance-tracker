@@ -3,6 +3,7 @@ export * from './global/entities';
 
 /* Forms */
 export * from './form/form-field';
+export * from './form/form-field-addon';
 export * from './form/form-validations';
 
 /* Finnhub */

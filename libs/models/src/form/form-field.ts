@@ -1,11 +1,6 @@
 import { InputSignal } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-
-export enum FormFieldAddonType {
-  TEXT = 'TEXT',
-  ICON = 'ICON',
-  BUTTON = 'BUTTON',
-}
+import { FormGroup, ValidatorFn } from '@angular/forms';
+import { FormFieldAddon } from './form-field-addon';
 
 export interface FormField {
   form: FormGroup;
@@ -14,9 +9,8 @@ export interface FormField {
   label?: string;
   placeholder?: string;
   disabled?: InputSignal<boolean>;
-  leftAddon?: boolean;
-  leftAddonType?: FormFieldAddonType;
-  rightAddon?: boolean;
-  rightAddonType?: FormFieldAddonType;
-  validations?: any[];
+  leftAddon?: FormFieldAddon;
+  rightAddon?: FormFieldAddon;
+  validations?: ValidatorFn[];
+  cssClass?: string;
 }
