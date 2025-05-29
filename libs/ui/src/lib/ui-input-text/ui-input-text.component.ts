@@ -32,4 +32,5 @@ export class UiInputTextComponent implements FormField {
   @Input() placeholder: string | undefined = undefined;
   @Input() validations = undefined;
   disabled = input<boolean>(false);
+  @Input() size: 'small' | 'large' = 'large';
 }

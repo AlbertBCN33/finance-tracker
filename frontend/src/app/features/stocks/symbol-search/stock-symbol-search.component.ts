@@ -8,6 +8,7 @@ import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 
 @Component({
@@ -25,7 +26,10 @@ export class StockSymbolSearchComponent implements OnInit, OnDestroy {
   private unsubscribe = new Subject<void>();
   fb: FormBuilder = new FormBuilder();
   form: FormGroup = this.fb.group({
-    symbol: new FormControl(undefined),
+    symbol: new FormControl(undefined, [
+      Validators.required,
+      Validators.minLength(4),
+    ]),
   });
 
   constructor(private apiService: ApiRoutesService) {}

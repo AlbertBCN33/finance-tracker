@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormField } from '@finance-tracker/models';
 import { FormGroup } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
+import { FormUtils } from '@finance-tracker/utils';
 
 @Component({
   selector: 'lib-ui-form-field-error',
@@ -13,4 +14,6 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class UiFormFieldErrorComponent implements Partial<FormField> {
   @Input() form!: FormGroup;
   @Input() controlName!: string;
+
+  FormUtils = FormUtils;
 }

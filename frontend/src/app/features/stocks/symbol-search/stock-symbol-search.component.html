@@ -5,15 +5,15 @@
 	<form [formGroup]="form">
 		<lib-ui-input-text 
 			id="input-symbol" 
-			[form]="form" 
+			[form]="form"
 			controlName="symbol" 
-			label="STOCKS.SYMBOL_SEARCH.FORM_FIELD.SYMBOL.LABEL"
 			placeholder="STOCKS.SYMBOL_SEARCH.FORM_FIELD.SYMBOL.PLACEHOLDER"
 		/>
 
 		form.invalid = {{form.invalid}}<br />
 		form.value = {{form.value | json}}<br />
 		form.errors = {{form.errors | json}}<br />
+		field.invalid = {{form.get('symbol')?.invalid}}<br />
 	</form>
 
 </lib-ui-card>

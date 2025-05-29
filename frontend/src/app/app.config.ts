@@ -4,10 +4,10 @@ import { provideRouter } from '@angular/router';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
 import { appRoutes } from './app.routes';
 import { environment } from '../environments/environment';
 import { API_URL } from '@finance-tracker/data-access';
+import { DEFAULT_PRESET } from '@finance-tracker/ui';
 
 const httpLoaderFactory: (http: HttpClient) => TranslateHttpLoader = (
   http: HttpClient
@@ -29,7 +29,7 @@ export const appConfig: ApplicationConfig = {
     }),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: DEFAULT_PRESET,
       },
     }),
   ],

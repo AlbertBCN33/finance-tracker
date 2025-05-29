@@ -9,11 +9,15 @@
 		<input 
 			pInputText 
 			type="text"
+			[ngClass]="{
+				'ng-dirty': form.get(controlName)?.invalid && (form.get(controlName)?.dirty || form.get(controlName)?.touched)
+			}"
 			[id]="id"
 			[name]="controlName"
 			[formControlName]="controlName"
 			[placeholder]="placeholder ? (placeholder | translate) : undefined"
 			[attr.disabled]="disabled()"
+			[pSize]="size"
 		/>
 		<p-inputgroup-addon>aa</p-inputgroup-addon>
 	</p-inputgroup>

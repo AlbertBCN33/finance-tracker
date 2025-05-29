@@ -1,4 +1,14 @@
 {
+  "VALIDATIONS_MSG": {
+    "min": "The value has to be greater than or equal to {{min}}.",
+    "max": "The value has to be less than or equal to {{max}}.",
+    "required": "The field is mandatory.",
+    "requiredTrue": "The field is mandatory.",
+    "email": "Incorrect email pattern.",
+    "minlength": "The value has to be greater than or equal to {{requiredLength}}.",
+    "maxlength": "The value has to be less than or equal to {{requiredLength}}.",
+    "pattern": "Incorrect pattern."
+  },
   "INDEX_FUNDS": {
     "HEADER_TITLE": "Index funds"
   },
