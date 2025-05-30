@@ -1,0 +1,14 @@
+@if (data.length > 0) {
+<ul class="ui-summary-list">
+	@for (item of data; track $index) {
+	<li>
+		<label>{{ item.label}}</label>
+		@switch (item.type) {
+		@case (SummaryItemType.TEXT) {
+		<span>{{ item.value}}</span>
+		}
+		}
+	</li>
+	}
+</ul>
+}

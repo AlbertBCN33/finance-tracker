@@ -1,0 +1,33 @@
+<p-table 
+	[dataKey]="dataKey"
+	[columns]="columns" 
+	[value]="rows()" 
+	[sortMode]="sortMode"
+	[rows]="rpp"
+	[paginator]="paginator"
+	[rowsPerPageOptions]="rowsPerPageOptions"
+	[tableStyle]="tableStyle"
+	[size]="size"
+	[rowHover]="rowHover">
+	<ng-template #header let-columns>
+		<tr>
+			@for(col of columns; track col.id) {
+				<th 
+					[pSortableColumn]="col.isSortable ? col.id : undefined" 
+					[title]="col.label | translate">
+					{{ col.label | translate }}
+					@if (col.isSortable) {
+						<p-sortIcon [field]="col.id" />
+					}
+				</th>
+			}
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="body" let-rowData let-columns="columns">
+		<tr>
+			<td *ngFor="let col of columns">
+				{{ rowData[col.id] || '-'}}
+			</td>
+		</tr>
+	</ng-template>
+</p-table>

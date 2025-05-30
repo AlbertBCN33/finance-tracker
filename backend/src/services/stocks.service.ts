@@ -1,9 +1,12 @@
 import {
+  CompanyProfile,
+  CompanyProfileRequest,
   Quote,
   QuoteRequest,
   StockSymbol,
   StockSymbolRequest,
   Symbol,
+  SymbolDetailed,
   SymbolRequest,
 } from '@finance-tracker/models';
 import { FinnhubService } from './finnhub.service';
@@ -21,6 +24,63 @@ class StocksService {
   getSymbols = async (request: SymbolRequest): Promise<Symbol[]> => {
     const res = await FinnhubService.getSymbols(request);
     return res.result;
+  };
+
+  /**
+   * Symbols (detailed)
+   *
+   * @description Search for best-matching symbols based on your query. You can input anything from symbol, security's name to ISIN and Cusip.
+   * @async
+   * @function getSymbolsDetailed
+   * @param {SymbolRequest} request Request parameters
+   * @return {Promise<SymbolDetailed[]>}
+   */
+  getSymbolsDetailed = async (
+    request: SymbolRequest
+  ): Promise<SymbolDetailed[]> => {
+    const result: SymbolDetailed[] = [];
+    // Get matching symbols
+    const res = await FinnhubService.getSymbols(request);
+    if (res?.count > 0) {
+      /**
+       * For every symbol get the compnay details
+       * Note: The API doesn't allow to retrieve a list of company details based on a symbol. That's why we have to make a query for every matched symbol.
+       */
+      for (let i = 0; i < res.result.length; i++) {
+        console.log(
+          'SymbolsDetailed > Service > Symbol: ',
+          res.result[i].symbol
+        );
+        await this.getCompanyProfile({
+          symbol: res.result[i].symbol,
+        })
+          .then((response) =>
+            result.push(new SymbolDetailed(res.result[i], response))
+          )
+          .catch((err) => {
+            console.log('SymbolsDetailed > Service > Company profile: ', err);
+            result.push(new SymbolDetailed(res.result[i], undefined));
+          });
+      }
+      return result;
+    }
+    return null;
+  };
+
+  /**
+   * Company profile
+   *
+   * @description Get general information of a company. You can query by symbol, ISIN or CUSIP. This is the free version.
+   * @async
+   * @function getCompanyProfile
+   * @param {CompanyProfileRequest} request Request parameters
+   * @return {Promise<CompanyProfile>}
+   */
+  getCompanyProfile = async (
+    request: CompanyProfileRequest
+  ): Promise<CompanyProfile> => {
+    const res = await FinnhubService.getCompanyProfile(request);
+    return res;
   };
 
   /**

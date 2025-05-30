@@ -27,7 +27,11 @@
       "EXACT_MATCH": "Exact match",
       "EXACT_MATCH_EMPTY": "No exact match found.",
       "BEST_MATCHES": "Best matches",
-      "BEST_MATCHES_EMPTY": "There are no matches."
+      "BEST_MATCHES_EMPTY": "There are no matches.",
+      "BEST_MATCHES.description": "Description",
+      "BEST_MATCHES.symbol": "Symbol",
+      "BEST_MATCHES.displaySymbol": "Display Symbol",
+      "BEST_MATCHES.type": "Type"
     }
   },
   "WHISHLISTS": {

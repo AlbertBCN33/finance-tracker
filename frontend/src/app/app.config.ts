@@ -1,6 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { providePrimeNG } from 'primeng/config';
@@ -32,5 +33,6 @@ export const appConfig: ApplicationConfig = {
         preset: DEFAULT_PRESET,
       },
     }),
+    provideAnimations(),
   ],
 };
