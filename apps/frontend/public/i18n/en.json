@@ -1,0 +1,45 @@
+{
+  "VALIDATIONS_MSG": {
+    "min": "The value has to be greater than or equal to {{min}}.",
+    "max": "The value has to be less than or equal to {{max}}.",
+    "required": "The field is mandatory.",
+    "requiredTrue": "The field is mandatory.",
+    "email": "Incorrect email pattern.",
+    "minlength": "The value has to be greater than or equal to {{requiredLength}}.",
+    "maxlength": "The value has to be less than or equal to {{requiredLength}}.",
+    "pattern": "Incorrect pattern."
+  },
+  "INDEX_FUNDS": {
+    "HEADER_TITLE": "Index funds"
+  },
+  "NEWS": {
+    "HEADER_TITLE": "News"
+  },
+  "STOCKS": {
+    "HEADER_TITLE": "Stocks",
+    "PAGE_TITLE": "Stocks",
+    "PAGE_SUBTITLE": "Search for best-matching stock symbols, and view a list of supported stocks with real-time data.",
+    "SYMBOL_SEARCH": {
+      "SECTION_TITLE": "Symbol lookup",
+      "SECTION_SUBTITLE": "Search for best-matching symbols based on your query. You can input anything from symbol, security's name to ISIN and Cusip.",
+      "FORM_FIELD.SYMBOL.LABEL": "Search",
+      "FORM_FIELD.SYMBOL.PLACEHOLDER": "Symbol, name, isin, or cusip",
+      "EXACT_MATCH": "Exact match",
+      "EXACT_MATCH_EMPTY": "No exact match found.",
+      "BEST_MATCHES": "Best matches",
+      "BEST_MATCHES_EMPTY": "There are no matches.",
+      "BEST_MATCHES.description": "Description",
+      "BEST_MATCHES.symbol": "Symbol",
+      "BEST_MATCHES.displaySymbol": "Display Symbol",
+      "BEST_MATCHES.type": "Type"
+    }
+  },
+  "WHISHLISTS": {
+    "HEADER_TITLE": "Whishlists",
+    "PAGE_TITLE": "Whishlists",
+    "PAGE_SUBTITLE": "Like it? Save it. Love it? Track it. Build your dream portfolio, one favorite at a time.",
+    "EMPTY_MSG": "You haven't created any whislist yet.",
+    "EMPTY_MSG2": "Start building your personalized investment watchlist.",
+    "CREATE_MSG": "Create wishlist"
+  }
+}

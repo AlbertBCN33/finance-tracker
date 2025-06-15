@@ -1,21 +1,23 @@
 <p-menubar [model]="list()">
 	<ng-template #start>
 		@if (logoSrc()) {
+		<a href="/">
 			<img [src]="logoSrc()" alt="Logo Finance Tracker" />
+		</a>
 		}
 	</ng-template>
 	<ng-template #item let-item>
 		@if (item.routerLink) {
-			<a [routerLink]="item.routerLink" class="p-menubar-item-link">
-				<span [class]="item.icon"></span>
-				<span class="ml-2">{{ item.label | translate }}</span>
-			</a>
+		<a [routerLink]="item.routerLink" class="p-menubar-item-link">
+			<span [class]="item.icon"></span>
+			<span class="ml-2">{{ item.label | translate }}</span>
+		</a>
 		}
 	</ng-template>
 	<ng-template #end>
 		<div class="flex items-center gap-2">
 			<!-- LOGIN / LOGOUT -->
-			 <!-- USER INFO -->
+			<!-- USER INFO -->
 		</div>
 	</ng-template>
 </p-menubar>
