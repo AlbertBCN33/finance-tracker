@@ -15,6 +15,12 @@ export class MainComponent {
   logo = 'img/logo-horizontal-light.svg';
   headerMenu: MenuItem[] = [
     {
+      id: 'dashboard',
+      label: `DASHBOARD.HEADER_TITLE`,
+      icon: PrimeIcons.HOME,
+      routerLink: '/dashboard',
+    },
+    {
       id: EntityType.INDEX_FUNDS,
       label: `${EntityType.INDEX_FUNDS}.HEADER_TITLE`,
       icon: PrimeIcons.CHART_LINE,

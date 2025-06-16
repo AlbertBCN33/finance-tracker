@@ -6,6 +6,14 @@ export const routes: Route[] = [
     path: '',
     component: MainComponent,
     children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          import('../../features/dashboard/dashboard.routes').then(
+            (m) => m.routes || console.error('Error loading dashboard')
+          ),
+      },
       {
         path: 'index-funds',
         loadChildren: () =>

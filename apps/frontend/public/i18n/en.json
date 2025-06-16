@@ -12,13 +12,19 @@
   "LOGIN": {
     "PAGE_TITLE": "Welcome back!",
     "PAGE_SUBTITLE": "Sign in to continue",
-    "FORM_FIELD.username": "Username",
+    "FORM_FIELD.email": "Email",
     "FORM_FIELD.password": "Password",
     "BUTTON_SIGNIN": "Sign in",
+    "ERROR_SIGNIN": "Invalid email or password.",
     "CREATE_ACCOUNT": "Don't have an account?",
     "BUTTON_SIGNUP": "Sign up",
     "DIVIDER": "Or",
-    "BUTTON_GOOGLE": "Sign in with Google"
+    "BUTTON_GOOGLE": "Sign in with Google",
+    "ERROR_GOOGLE": "Google sign in failed. Please try again."
+  },
+  "DASHBOARD": {
+    "HEADER_TITLE": "Dashboard",
+    "PAGE_TITLE": "Dashboard"
   },
   "INDEX_FUNDS": {
     "HEADER_TITLE": "Index funds"

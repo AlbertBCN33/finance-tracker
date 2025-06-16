@@ -1,49 +1,90 @@
 <div class="login-container">
-	<div class="login-box">
+  <div class="login-box">
+    <!-- Header -->
+    <div class="login-box__header">
+      <img [src]="logoSrc" alt="Logo Finance Tracker" />
+      <h1>{{ 'LOGIN.PAGE_TITLE' | translate }}</h1>
+      <p>{{ 'LOGIN.PAGE_SUBTITLE' | translate }}</p>
+    </div>
 
-		<!-- Header -->
-		<div class="login-box__header">
-			<img [src]="logoSrc" alt="Logo Finance Tracker" />
-			<h1>{{ 'LOGIN.PAGE_TITLE' | translate}}</h1>
-			<h3>{{ 'LOGIN.PAGE_SUBTITLE' | translate }}</h3>
-		</div>
+    <!-- Login: Email + Password -->
+    <div class="login-box__user">
+      <form [formGroup]="form" (ngSubmit)="submit($event)">
+        <!-- Email -->
+        <lib-ui-input-text
+          [form]="form"
+          controlName="email"
+          id="email"
+          label="LOGIN.FORM_FIELD.email"
+          placeholder="LOGIN.FORM_FIELD.email"
+          [leftAddon]="emailAddon"
+        />
 
-		<!-- Login: Email + Password -->
-		<div class="login-box__user">
-			<!-- <label for="email1"
-						class="block text-surface-900 dark:text-surface-0 text-xl font-medium mb-2">Email</label><input
-						pinputtext="" id="email1" type="text" placeholder="Email address"
-						class="p-inputtext p-component w-full md:w-[30rem] mb-8 ng-untouched ng-pristine ng-valid"
-						pc1="" /><label for="password1"
-						class="block text-surface-900 dark:text-surface-0 font-medium text-xl mb-2">Password</label>
-						<p-password
-						id="password1" placeholder="Password" styleclass="mb-4"
-						class="ng-untouched ng-pristine ng-valid" pc2="" />
-					<div class="flex items-center justify-between mt-2 mb-8 gap-8">
-						<span class="font-medium no-underline ml-2 text-right cursor-pointer text-primary">Forgot
-							password?</span>
-					</div>
-					-->
-			<p-button [label]="'LOGIN.BUTTON_SIGNIN' | translate" type="submit" [rounded]="true" size="large"
-				[fluid]="true" tabindex="0" />
+        <!-- Password-->
+        <lib-ui-input-password
+          [form]="form"
+          controlName="password"
+          id="password"
+          label="LOGIN.FORM_FIELD.password"
+          placeholder="LOGIN.FORM_FIELD.password"
+          [leftAddon]="passwordAddon"
+          [toggleMask]="true"
+          cssClass="mt-4 mb-4"
+        />
 
-			<p>{{'LOGIN.CREATE_ACCOUNT' | translate }} <p-button [label]="'LOGIN.BUTTON_SIGNUP' | translate"
-					variant="text" [rounded]="true" size="small" tabindex="1" /></p>
-		</div>
+        <!-- Sign in -->
+        <p-button
+          [label]="'LOGIN.BUTTON_SIGNIN' | translate"
+          type="submit"
+          [rounded]="true"
+          size="large"
+          [fluid]="true"
+          tabindex="0"
+          styleClass="mt-4"
+          [disabled]="form.disabled"
+          [loading]="form.disabled"
+        />
+        @if(showUserError) {
+        <lib-ui-message message="LOGIN.ERROR_SIGNIN" severity="error" />
+        }
+      </form>
 
+      <!-- Sign up -->
+      <p>
+        {{ 'LOGIN.CREATE_ACCOUNT' | translate }}
+        <p-button
+          [label]="'LOGIN.BUTTON_SIGNUP' | translate"
+          variant="text"
+          [rounded]="true"
+          size="small"
+          tabindex="1"
+        />
+      </p>
+    </div>
 
-		<p-divider align="center">
-			<b>{{ 'LOGIN.DIVIDER' | translate }}</b>
-		</p-divider>
+    <p-divider align="center">
+      <b>{{ 'LOGIN.DIVIDER' | translate }}</b>
+    </p-divider>
 
-		<!-- Login: Google -->
-		<div class="login-box__google">
-			<p-button [label]="'LOGIN.BUTTON_GOOGLE' | translate" variant="outlined" severity="secondary"
-				[rounded]="true" size="large" [fluid]="true" tabindex="2" (onClick)="authService.loginWithGoogle()">
-				<ng-template #icon>
-					<img [src]="googleIconSrc" width="25" alt="Google icon logo" />
-				</ng-template>
-			</p-button>
-		</div>
-	</div>
+    <!-- Login: Google -->
+    <div class="login-box__google">
+      <p-button
+        [label]="'LOGIN.BUTTON_GOOGLE' | translate"
+        variant="outlined"
+        severity="secondary"
+        [rounded]="true"
+        size="large"
+        [fluid]="true"
+        tabindex="2"
+        (onClick)="loginWithGoogle()"
+      >
+        <ng-template #icon>
+          <img [src]="googleIconSrc" width="25" alt="Google icon logo" />
+        </ng-template>
+      </p-button>
+      @if(showGoogleError) {
+      <lib-ui-message message="LOGIN.ERROR_GOOGLE" severity="error" />
+      }
+    </div>
+  </div>
 </div>
