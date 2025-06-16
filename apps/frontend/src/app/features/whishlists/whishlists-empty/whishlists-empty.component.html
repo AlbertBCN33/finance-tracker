@@ -1,12 +1,17 @@
 <p-card>
+  <img [src]="iconEmpty" alt="empty wishlists" />
 
-	<img [src]="iconEmpty" alt="empty wishlists" />
+  <h2>{{ 'WHISHLISTS.EMPTY_MSG' | translate }}</h2>
+  <p class="mb-6">
+    {{ 'WHISHLISTS.EMPTY_MSG2' | translate }}
+  </p>
 
-	<h2>{{'WHISHLISTS.EMPTY_MSG' | translate}}</h2>
-	<p class="mb-6">
-		{{'WHISHLISTS.EMPTY_MSG2' | translate}}
-	</p>
-
-	<p-button [label]="'WHISHLISTS.CREATE_MSG' | translate" icon="pi pi-plus" iconPos="left" [rounded]="true"
-		size="large" (onClick)="create()" />
+  <p-button
+    [label]="'WHISHLISTS.CREATE_MSG' | translate"
+    icon="pi pi-plus"
+    iconPos="left"
+    [rounded]="true"
+    size="large"
+    (onClick)="create()"
+  />
 </p-card>
