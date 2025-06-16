@@ -1,19 +1,16 @@
 <div class="login-container">
-  <div class="login-box">
-    <div
-      class="w-full bg-surface-0 dark:bg-surface-900 py-20 px-8 sm:px-20"
-      style="border-radius: 53px"
-    >
-      <div class="text-center mb-8">
-        <div
-          class="text-surface-900 dark:text-surface-0 text-3xl font-medium mb-4"
-        >
-          Welcome to PrimeLand!
-        </div>
-        <span class="text-muted-color font-medium">Sign in to continue</span>
-      </div>
-      <div>
-        <!-- <label for="email1"
+	<div class="login-box">
+
+		<!-- Header -->
+		<div class="login-box__header">
+			<img [src]="logoSrc" alt="Logo Finance Tracker" />
+			<h1>{{ 'LOGIN.PAGE_TITLE' | translate}}</h1>
+			<h3>{{ 'LOGIN.PAGE_SUBTITLE' | translate }}</h3>
+		</div>
+
+		<!-- Login: Email + Password -->
+		<div class="login-box__user">
+			<!-- <label for="email1"
 						class="block text-surface-900 dark:text-surface-0 text-xl font-medium mb-2">Email</label><input
 						pinputtext="" id="email1" type="text" placeholder="Email address"
 						class="p-inputtext p-component w-full md:w-[30rem] mb-8 ng-untouched ng-pristine ng-valid"
@@ -26,8 +23,27 @@
 						<span class="font-medium no-underline ml-2 text-right cursor-pointer text-primary">Forgot
 							password?</span>
 					</div>
-					<p-button label="Sign In" styleclass="w-full" routerlink="/" tabindex="0" pc4="">Sign In</p-button> -->
-      </div>
-    </div>
-  </div>
+					-->
+			<p-button [label]="'LOGIN.BUTTON_SIGNIN' | translate" type="submit" [rounded]="true" size="large"
+				[fluid]="true" tabindex="0" />
+
+			<p>{{'LOGIN.CREATE_ACCOUNT' | translate }} <p-button [label]="'LOGIN.BUTTON_SIGNUP' | translate"
+					variant="text" [rounded]="true" size="small" tabindex="1" /></p>
+		</div>
+
+
+		<p-divider align="center">
+			<b>{{ 'LOGIN.DIVIDER' | translate }}</b>
+		</p-divider>
+
+		<!-- Login: Google -->
+		<div class="login-box__google">
+			<p-button [label]="'LOGIN.BUTTON_GOOGLE' | translate" variant="outlined" severity="secondary"
+				[rounded]="true" size="large" [fluid]="true" tabindex="2" (onClick)="authService.loginWithGoogle()">
+				<ng-template #icon>
+					<img [src]="googleIconSrc" width="25" alt="Google icon logo" />
+				</ng-template>
+			</p-button>
+		</div>
+	</div>
 </div>

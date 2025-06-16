@@ -9,6 +9,17 @@
     "maxlength": "The value has to be less than or equal to {{requiredLength}}.",
     "pattern": "Incorrect pattern."
   },
+  "LOGIN": {
+    "PAGE_TITLE": "Welcome back!",
+    "PAGE_SUBTITLE": "Sign in to continue",
+    "FORM_FIELD.username": "Username",
+    "FORM_FIELD.password": "Password",
+    "BUTTON_SIGNIN": "Sign in",
+    "CREATE_ACCOUNT": "Don't have an account?",
+    "BUTTON_SIGNUP": "Sign up",
+    "DIVIDER": "Or",
+    "BUTTON_GOOGLE": "Sign in with Google"
+  },
   "INDEX_FUNDS": {
     "HEADER_TITLE": "Index funds"
   },
