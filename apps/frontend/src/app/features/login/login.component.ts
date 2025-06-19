@@ -67,15 +67,15 @@ export class LoginComponent {
     else this.form.enable();
   };
 
-  submit = (event: SubmitEvent) => {
+  submit = (_event: SubmitEvent) => {
     this.updateSubmit(true);
     this.showUserError = false;
     this.authService
       .login(this.form.get('email')?.value, this.form.get('password')?.value)
-      .then((res) => {
+      .then((_res) => {
         this.router.navigate(['/']);
       })
-      .catch((error) => {
+      .catch((_error) => {
         this.showUserError = true;
       })
       .finally(() => {
@@ -87,10 +87,10 @@ export class LoginComponent {
     this.showGoogleError = false;
     this.authService
       .loginWithGoogle()
-      .then((res) => {
+      .then((_res) => {
         this.router.navigate(['/']);
       })
-      .catch((error) => {
+      .catch((_error) => {
         this.showGoogleError = true;
       });
   };

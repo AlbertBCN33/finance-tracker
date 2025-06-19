@@ -1,29 +1,37 @@
 import { inject, Injectable } from '@angular/core';
 import {
   Auth,
+  browserSessionPersistence,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  UserCredential,
+  user,
+  User,
 } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   auth = inject(Auth);
+  user$: Observable<User | null>;
 
-  login(email: string, password: string): Promise<UserCredential> {
-    return signInWithEmailAndPassword(this.auth, email, password);
+  constructor() {
+    this.auth.setPersistence(browserSessionPersistence);
+    this.user$ = user(this.auth);
   }
 
-  loginWithGoogle(): Promise<UserCredential> {
-    const provider = new GoogleAuthProvider();
-    return signInWithPopup(this.auth, provider);
-  }
+  login = async (email: string, password: string) =>
+    signInWithEmailAndPassword(this.auth, email, password);
 
-  logout(): Promise<void> {
-    return signOut(this.auth);
-  }
+  loginWithGoogle = async () =>
+    signInWithPopup(this.auth, new GoogleAuthProvider());
+
+  logout = async () => {
+    return signOut(this.auth).then(() => {
+      sessionStorage.clear();
+    });
+  };
 
   get currentUser() {
     return this.auth.currentUser;
