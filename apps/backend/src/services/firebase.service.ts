@@ -14,21 +14,15 @@ const verifyToken = async (
   request: VerifyTokenRequest
 ): Promise<DecodedIdToken> => {
   return new Promise((resolve, reject) => {
-    console.log(`[Firebase] Verifying token ${request.idToken}`);
+    console.log(`[Firebase] Verifying token`);
     getAuth()
       .verifyIdToken(request.idToken)
       .then((response) => {
-        console.log(
-          `[Firebase] Successfully verified token for ${request.idToken}:`,
-          response
-        );
+        console.log(`[Firebase] Successfully verified token.`);
         resolve(response);
       })
       .catch((error) => {
-        console.error(
-          `[Firebase] Failed to verify token for ${request.idToken}:`,
-          error
-        );
+        console.error(`[Firebase] Failed to verify token.`, error);
         reject(
           new ApiErrorResponse(
             error.code,

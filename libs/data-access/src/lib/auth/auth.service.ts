@@ -3,6 +3,7 @@ import {
   Auth,
   browserSessionPersistence,
   GoogleAuthProvider,
+  idToken,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -15,10 +16,12 @@ import { Observable } from 'rxjs';
 export class AuthService {
   auth = inject(Auth);
   user$: Observable<User | null>;
+  token$: Observable<string | null>;
 
   constructor() {
     this.auth.setPersistence(browserSessionPersistence);
     this.user$ = user(this.auth);
+    this.token$ = idToken(this.auth);
   }
 
   login = async (email: string, password: string) =>
@@ -27,11 +30,10 @@ export class AuthService {
   loginWithGoogle = async () =>
     signInWithPopup(this.auth, new GoogleAuthProvider());
 
-  logout = async () => {
-    return signOut(this.auth).then(() => {
+  logout = async () =>
+    signOut(this.auth).then(() => {
       sessionStorage.clear();
     });
-  };
 
   get currentUser() {
     return this.auth.currentUser;

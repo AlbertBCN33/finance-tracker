@@ -1,5 +1,9 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  provideHttpClient,
+  withInterceptors,
+} from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
@@ -7,7 +11,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { providePrimeNG } from 'primeng/config';
 import { appRoutes } from './app.routes';
 import { environment } from '../environments/environment';
-import { API_URL } from '@finance-tracker/data-access';
+import { API_URL, authInterceptor } from '@finance-tracker/data-access';
 import { DEFAULT_PRESET } from '@finance-tracker/ui';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
@@ -22,7 +26,8 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     { provide: API_URL, useValue: environment.API_URL },
-    provideHttpClient(),
+    /* HTTP client + Interceptors */
+    provideHttpClient(withInterceptors([authInterceptor])),
     /* Translations */
     provideTranslateService({
       defaultLanguage: 'en',
