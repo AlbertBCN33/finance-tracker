@@ -1,31 +1,21 @@
+import { DecodedIdToken } from 'firebase-admin/auth';
 import { FirebaseService } from './firebase.service';
+import { VerifyTokenRequest } from '@finance-tracker/models';
 
 class AuthService {
   /**
-   * Login: Google
+   * Auth: Verify token
    *
-   * @description Login using the Google account
+   * @description Verifies a Firebase ID token (JWT)
    * @async
-   * @function loginGoogle
-   * @param {LoginGoogleRequest} request Request parameters
-   * @return {Promise<User>}
+   * @function verifyToken
+   * @param {VerifyTokenRequest} request Request parameters
+   * @return {Promise<DecodedIdToken>}
    */
-  loginGoogle = async (request: LoginGoogleRequest): Promise<User> => {
-    const res = await FirebaseService.loginGoogle(request);
-    return res.result;
-  };
-
-  /**
-   * Login: User
-   *
-   * @description Login using Email + Password
-   * @async
-   * @function loginUser
-   * @param {LoginUserRequest} request Request parameters
-   * @return {Promise<User>}
-   */
-  loginUser = async (request: LoginUserRequest): Promise<User> => {
-    const res = await FirebaseService.loginUser(request);
+  verifyToken = async (
+    request: VerifyTokenRequest
+  ): Promise<DecodedIdToken> => {
+    const res = await FirebaseService.verifyToken(request);
     return res.result;
   };
 }

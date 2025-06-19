@@ -47,10 +47,6 @@ class StocksService {
        * Note: The API doesn't allow to retrieve a list of company details based on a symbol. That's why we have to make a query for every matched symbol.
        */
       for (let i = 0; i < res.result.length; i++) {
-        console.log(
-          'SymbolsDetailed > Service > Symbol: ',
-          res.result[i].symbol
-        );
         await this.getCompanyProfile({
           symbol: res.result[i].symbol,
         })
@@ -58,7 +54,6 @@ class StocksService {
             result.push(new SymbolDetailed(res.result[i], response))
           )
           .catch((err) => {
-            console.log('SymbolsDetailed > Service > Company profile: ', err);
             result.push(new SymbolDetailed(res.result[i], undefined));
           });
       }

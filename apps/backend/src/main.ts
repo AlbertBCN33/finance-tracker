@@ -9,6 +9,7 @@ import routes from '../src/routes/index';
 import { errorHandler } from './middleware/http-error.middleware';
 import { setupSwagger } from './config/swagger';
 import { setupFirebase } from './config/firebase';
+import { authHandler } from './middleware/auth.middleware';
 
 const host = process.env.HOST ?? 'localhost';
 const port = process.env.PORT ? Number(process.env.port) : 3333;
@@ -21,17 +22,17 @@ app.use(cookieParser());
 // Load assets
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
+// Setup Firebase
+setupFirebase();
+
 // Routes registration
-app.use('/api', routes);
+app.use('/api', authHandler, routes);
 app.get('/api', (req, res) => {
   res.send({ message: 'The backend is running!' });
 });
 
 // Setup Swagger
 setupSwagger(app);
-
-// Setup Firebase
-setupFirebase();
 
 // Server
 const server = app.listen(port, host, () => {

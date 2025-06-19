@@ -1,7 +1,6 @@
-import { Express } from 'express';
 import * as dotenv from 'dotenv';
 dotenv.config();
-import { initializeApp } from 'firebase-admin/app';
+import { initializeApp, applicationDefault } from 'firebase-admin/app';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -10,6 +9,7 @@ const firebaseConfig = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.FIREBASE_APP_ID,
+  credential: applicationDefault(),
 };
 
 export const setupFirebase = () => initializeApp(firebaseConfig);

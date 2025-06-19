@@ -1,135 +1,46 @@
-import {
-  ApiErrorResponse,
-  CompanyProfile,
-  CompanyProfileRequest,
-  Quote,
-  QuoteRequest,
-  StockSymbol,
-  StockSymbolRequest,
-  SymbolRequest,
-  SymbolResponse,
-} from '@finance-tracker/models';
-import { FinnhubUtils } from '@finance-tracker/utils';
-import * as finnhub from 'finnhub';
-
-const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-api_key.apiKey = process.env.FINNHUB_API_KEY;
-
-const client = new finnhub.DefaultApi();
+import { ApiErrorResponse, VerifyTokenRequest } from '@finance-tracker/models';
+import { DecodedIdToken, getAuth } from 'firebase-admin/auth';
 
 /**
- * Login: Google
+ * Auth: Verify token
  *
- * @description Login using Google account
+ * @description Verifies a Firebase ID token (JWT)
  * @async
- * @function loginGoogle
- * @param {LoginGoogleRequest} request Request parameters
- * @return {Promise<LoginGoogleResponse>}
+ * @function verifyToken
+ * @param {VerifyTokenRequest} request Request parameters
+ * @return {Promise<DecodedIdToken>}
  */
-const loginGoogle = async (
-  request: LoginGoogleRequest
-): Promise<LoginGoogleResponse> => {
+const verifyToken = async (
+  request: VerifyTokenRequest
+): Promise<DecodedIdToken> => {
   return new Promise((resolve, reject) => {
-    console.log(
-      `[Finnhub] Fetching symbols for ${request.q || request.exchange}`
-    );
-    client.symbolSearch(
-      request.q,
-      request.exchange,
-      (error: string, data: LoginGoogleResponse, _response: string) => {
-        if (error) {
-          console.error(
-            `[finnhub] Failed to fetch symbols for ${request.q}:`,
+    console.log(`[Firebase] Verifying token ${request.idToken}`);
+    getAuth()
+      .verifyIdToken(request.idToken)
+      .then((response) => {
+        console.log(
+          `[Firebase] Successfully verified token for ${request.idToken}:`,
+          response
+        );
+        resolve(response);
+      })
+      .catch((error) => {
+        console.error(
+          `[Firebase] Failed to verify token for ${request.idToken}:`,
+          error
+        );
+        reject(
+          new ApiErrorResponse(
+            error.code,
+            'AUTH',
+            'AUTH.VERIFY_TOEKN.ERROR',
             error
-          );
-          reject(
-            new ApiErrorResponse(
-              500,
-              'STOCKS',
-              'STOCKS.GET_SYMBOLS.ERROR',
-              error
-            )
-          );
-        } else {
-          console.log(
-            `[Finnhub] Successfully fetched symbols for ${request.q}:`,
-            data
-          );
-          if (data.count > 1) {
-            resolve(data);
-          } else {
-            reject(
-              new ApiErrorResponse(
-                404,
-                'STOCKS',
-                'STOCKS.GET_SYMBOLS.NOT_FOUND',
-                error
-              )
-            );
-          }
-        }
-      }
-    );
-  });
-};
-
-/**
- * Login: User
- *
- * @description Login using User + Password
- * @async
- * @function loginUser
- * @param {LoginUserRequest} request Request parameters
- * @return {Promise<LoginUserResponse>}
- */
-const loginUser = async (
-  request: LoginUserRequest
-): Promise<LoginUserResponse> => {
-  return new Promise((resolve, reject) => {
-    console.log(
-      `[Finnhub] Fetching symbols for ${request.q || request.exchange}`
-    );
-    client.symbolSearch(
-      request.q,
-      request.exchange,
-      (error: string, data: LoginUserResponse, _response: string) => {
-        if (error) {
-          console.error(
-            `[finnhub] Failed to fetch symbols for ${request.q}:`,
-            error
-          );
-          reject(
-            new ApiErrorResponse(
-              500,
-              'STOCKS',
-              'STOCKS.GET_SYMBOLS.ERROR',
-              error
-            )
-          );
-        } else {
-          console.log(
-            `[Finnhub] Successfully fetched symbols for ${request.q}:`,
-            data
-          );
-          if (data.count > 1) {
-            resolve(data);
-          } else {
-            reject(
-              new ApiErrorResponse(
-                404,
-                'STOCKS',
-                'STOCKS.GET_SYMBOLS.NOT_FOUND',
-                error
-              )
-            );
-          }
-        }
-      }
-    );
+          )
+        );
+      });
   });
 };
 
 export const FirebaseService = {
-  loginGoogle,
-  loginUser,
+  verifyToken,
 };

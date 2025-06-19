@@ -1,25 +1,34 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
+import AuthService from '../services/auth.service';
+import { ApiResponse, VerifyTokenRequest } from '@finance-tracker/models';
+import { DecodedIdToken } from 'firebase-admin/auth';
 
 class AuthController {
-  service = new AuthService();
+  private service = new AuthService();
 
-  loginGoogle = async (req: Request, res: Response) => {
+  /**
+   * Auth: Verify token
+   *
+   * @description Verifies a Firebase ID token (JWT)
+   * @async
+   * @function verifyToken
+   */
+  verifyToken = async (
+    req: Request<unknown, unknown, unknown, VerifyTokenRequest>,
+    res: Response<ApiResponse<DecodedIdToken>>,
+    next: NextFunction
+  ) => {
     try {
-      const response = await this.service.loginGoogle();
-      return res.json(response);
+      const { idToken } = req.query;
+      const data = await this.service.verifyToken({ idToken });
+      return res.json({
+        success: true,
+        name: 'AUTH',
+        message: 'AUTH.VERIFY_TOKEN.SUCCESS',
+        data,
+      });
     } catch (error) {
-      console.error('auth > login_google: ', error);
-      return res.status(500).json({ error: 'auth.login_google.error' });
-    }
-  };
-
-  loginUser = async (req: Request, res: Response) => {
-    try {
-      const response = await this.service.loginUser();
-      return res.json(response);
-    } catch (error) {
-      console.error('auth > login_user: ', error);
-      return res.status(500).json({ error: 'auth.login_user.error' });
+      next(error);
     }
   };
 }

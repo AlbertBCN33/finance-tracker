@@ -14,7 +14,7 @@ import {
 } from '@finance-tracker/models';
 
 class StocksController {
-  service = new StocksService();
+  private service = new StocksService();
 
   /**
    * Symbols

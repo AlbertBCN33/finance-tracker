@@ -18,3 +18,4 @@ export * from './finnhub/company-profile';
 
 /* API */
 export * from './api/api-response';
+export * from './api/api-auth';
