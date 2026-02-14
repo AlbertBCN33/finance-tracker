@@ -1,21 +1,24 @@
 .ui-page-card {
-	padding: 1.5rem;
+  padding: 1.5rem;
+
+  &__header {
+    margin-bottom: 2rem;
+  }
 }
 
 .ui-page-card .ui-page-card__title {
-	color: #374151;
-	font-size: 3rem;
-	font-weight: 500;
-	letter-spacing: -0.025em;
-	line-height: 1;
-	margin-top: 0;
-	margin-bottom: 1rem;
+  color: #374151;
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .ui-page-card .ui-page-card__subtitle {
-	color: #374151;
-	font-size: 1.75rem;
-	font-weight: 300;
-	line-height: 2.25rem;
-	margin-bottom: 1.5rem;
+  color: #374151;
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 2.25rem;
 }

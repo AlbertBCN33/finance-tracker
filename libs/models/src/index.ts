@@ -1,6 +1,7 @@
 /* General */
 export * from './global/entities';
 export * from './global/symbol-detailed';
+export * from './global/assets';
 
 /* UI */
 export * from './ui/form-field';

@@ -4,6 +4,8 @@ import WishlistsService from '../services/wishlists.service';
 class WishlistsController {
   service = new WishlistsService();
 
+  create = () => {};
+
   getAll = async (req: Request, res: Response) => {
     // try {
     //   const response = await this.service.getAll();

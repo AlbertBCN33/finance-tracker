@@ -1,0 +1,16 @@
+.holdings-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+
+  &:first-child {
+    width: 100%;
+  }
+}
+
+::ng-deep p-chart.holdings-chart {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30rem;
+}

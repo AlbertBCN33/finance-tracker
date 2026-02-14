@@ -1,9 +1,11 @@
 <div class="ui-page-card">
-	<h1 class="ui-page-card__title">{{ title() | translate }}</h1>
-	@if (subtitle()) {
-		<div class="ui-page-card__subtitle">{{ subtitle()! | translate }}</div>
-	}
-	<div>
-		<ng-content />
-	</div>
+  <div class="ui-page-card__header">
+    <h1 class="ui-page-card__title">{{ title() | translate }}</h1>
+    @if (subtitle()) {
+    <div class="ui-page-card__subtitle">{{ subtitle()! | translate }}</div>
+    }
+  </div>
+  <div class="ui-page-card__content">
+    <ng-content />
+  </div>
 </div>

@@ -21,6 +21,12 @@ export class MainComponent {
       routerLink: '/dashboard',
     },
     {
+      id: 'holdings',
+      label: `HOLDINGS.HEADER_TITLE`,
+      icon: PrimeIcons.MONEY_BILL,
+      routerLink: '/holdings',
+    },
+    {
       id: EntityType.INDEX_FUNDS,
       label: `${EntityType.INDEX_FUNDS}.HEADER_TITLE`,
       icon: PrimeIcons.CHART_LINE,

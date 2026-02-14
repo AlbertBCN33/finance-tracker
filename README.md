@@ -94,3 +94,16 @@ Learn more:
 - [Angular](https://angular.dev/overview)
 - [Firebase](https://firebase.google.com/)
 - [ExpressJs](https://expressjs.com/)
+
+## bolt.new -> genrate UI examples
+
+Can you create a UI prototype for a desktop web app called finance-tracker. It has to be modern, clean and clear from a UX/UI perspective.
+It allows the user to:
+
+- Login
+- Connect to a list of available banks, to track your current balance, investments, etc.
+- Index funds: list, search, filter, add to whishlist, show live prices/data
+- Stocks: list, sort, filter, show live prices/data
+- Wishlists: create, read, update, delete
+- AI powered portfolio suggestions
+- Live finance news feed

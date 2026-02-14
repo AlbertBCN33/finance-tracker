@@ -1,9 +1,22 @@
 <div class="ui-card">
-	<h2 class="ui-card__title">{{ title() | translate }}</h2>
-	@if (subtitle()) {
-	<div class="ui-card__subtitle">{{ subtitle()! | translate }}</div>
-	}
-	<div>
-		<ng-content />
-	</div>
+  <!-- HEADER -->
+  @if(title() || subtitle() || hasCustomHead()) {
+  <div class="ui-card__header">
+    <div class="ui-card__header__head" [ngClass]="{ 'has-title': title() }">
+      @if(title()) {
+      <h2 class="ui-card__title">{{ title()! | translate }}</h2>
+      }
+      <ng-content select="[uiCardCustomHead]" />
+    </div>
+    @if (subtitle()) {
+    <div class="ui-card__subtitle">{{ subtitle()! | translate }}</div>
+    }
+  </div>
+  } hasCustomHead1 = {{ hasCustomHead() }} hasCustomHead2 =
+  {{ hasCustomHead2() }}
+
+  <!-- CONTENT-->
+  <div class="ui-card__content">
+    <ng-content />
+  </div>
 </div>

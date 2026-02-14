@@ -15,6 +15,13 @@ export const routes: Route[] = [
           ),
       },
       {
+        path: 'holdings',
+        loadChildren: () =>
+          import('../../features/holdings/holdings.routes').then(
+            (m) => m.routes || console.error('Error loading holdings')
+          ),
+      },
+      {
         path: 'index-funds',
         loadChildren: () =>
           import('../../features/index-funds/index-funds.routes').then(
