@@ -9,10 +9,14 @@
     margin-bottom: 1.5rem;
 
     &__head {
-      .has-title.has-custom-head {
+      &.has-custom-head {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .ui-card__title {
+          margin-bottom: 0;
+        }
       }
     }
   }

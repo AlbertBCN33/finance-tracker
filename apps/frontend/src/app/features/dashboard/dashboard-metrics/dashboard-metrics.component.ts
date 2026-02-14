@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UiCardComponent } from '@finance-tracker/ui';
+import { UiCardComponent, UiCardCustomHeadDirective } from '@finance-tracker/ui';
 
 @Component({
   selector: 'app-dashboard-metrics',
-  imports: [CommonModule, UiCardComponent],
+  imports: [CommonModule, UiCardComponent, UiCardCustomHeadDirective],
   templateUrl: './dashboard-metrics.component.html',
   styleUrl: './dashboard-metrics.component.scss',
 })
