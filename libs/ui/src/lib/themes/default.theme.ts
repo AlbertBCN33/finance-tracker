@@ -1,5 +1,5 @@
-import Aura from '@primeng/themes/aura';
-import { definePreset } from '@primeng/themes';
+import Aura from '@primeuix/themes/aura';
+import { definePreset } from '@primeuix/themes';
 
 export const DEFAULT_PRESET = definePreset(Aura, {
   primitive: {
@@ -12,14 +12,6 @@ export const DEFAULT_PRESET = definePreset(Aura, {
       root: {
         primary: {
           background: '#143157',
-        },
-      },
-    },
-    inputgroup: {
-      addon: {
-        color: '#2c3e50',
-        border: {
-          radius: '25px',
         },
       },
     },

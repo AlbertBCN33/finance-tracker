@@ -1,22 +1,45 @@
-# 📊 FinanceTracker
+# 🏔️ AltumFinance: Reach your financial peak.
 
-A web application to track index funds, stocks, and manage personal wishlists — built with Angular, Express, and Firebase in an Nx monorepo.
+## 🎯 The Vision
 
-## 🛠️ Stack
+AltumFinance is a high-performance, privacy-first financial command center. Built for the modern age where wealth is fragmented across traditional banks, digital brokers, and diverse asset classes, AltumFinance provides a single source of truth.
 
-🔧 Scalable monorepo with Nx
+We bridge the gap between "Casual Saving" and "Hardcore Investing" through a clean, "Zen-like" interface that transforms raw data into actionable intelligence.
 
-⚡️ Fast Angular v19 frontend
+## 🛠️ Tech Stack
 
-🚀 Lightweight Express backend
+- **Architecture:** Scalable monorepo with Nx, and a modular feature organization
+- **Frontend:** Angular 21 (utilizing Signals for reactive, real-time data binding).
+- **Backend:** Node.js (Express) providing a secure API Gateway.
+- **Database & Auth:** Firebase for realtime and scalable data (Firestore for wishlist/settings, Firebase Auth for Google integration).
+- **Data Aggregation:** Plaid / TrueLayer (Banking) & Finnhub / NewsAPI / Yahoo Finance / Alpha Vantage (Market Data).
 
-🔥 Powered by AI
+## 💎 Core Principles
 
-🔐 Firebase for realtime and scalable data
+- **Read-Only Security:** We never move money. We only illuminate it. By utilizing tokenized bank access, we never touch or store user credentials.
+- **Mode-Based Experience:**
+  - The Banking Vault: Minimalist focus on liquidity, burn-rates, and financial runway.
+  - The Investor Terminal: Data-dense focus on P&L, sector allocation, and market pulse.
+- **Actionable Insight:** We don't just show numbers; we show opportunities (e.g., the Wishlist and earnings calendars).
 
-🧩 Modular feature organization
+## 🎨 Brand Identity
 
-External APIs: NewsAPI, Finnhub, or Yahoo Finance
+Name: AltumFinance (Latin Altum: High/Deep).
+Logo: The "A-Peak"—a geometric mountain with an integrated teal trend line.
+Primary Palette: Deep Navy (#001f3f) — Stability & Trust.
+Accent Palette: Electric Teal (#00ced1) — Innovation & Growth.
+Typography: Montserrat (Headings) / Inter (Data & UI).
+
+## 🚀 Key Features (MVP)
+
+- **Unified Dashboard:** Aggregated Net Worth across all linked institutions.
+- **Assets search:** Search assets information (Stocks, ETFs, Index Funds)
+- **The Wishlist:** Real-time stock tracking with "Target Price" alerts.
+- **Market Pulse News:** Ticker-specific news feed tailored to the user's interests.
+
+## 🚀 Extra Features
+
+- **Portfolio Suggestions:** Powered by AI
 
 ## 📁 Project Structure
 
@@ -35,27 +58,6 @@ finance-tracker/
 ├── package.json
 └── tsconfig.base.json
 ```
-
-## 🚀 Features
-
-- ✅ **Index funds**
-  - List
-    - Sort
-    - Filter
-  - Show live prices
-- ✅ **Stocks**
-  - List
-    - Sort
-    - Filter
-  - Show live prices
-- ✅ **Wishlists**
-  - Create
-  - Read
-  - Update
-  - Delete
-- ✅ **AI** powered portfolio suggestions
-- ✅ Live **finance news** feed
-- ✅ Firebase for database and auth
 
 ## 🏗️ Setup & Run
 
@@ -94,16 +96,3 @@ Learn more:
 - [Angular](https://angular.dev/overview)
 - [Firebase](https://firebase.google.com/)
 - [ExpressJs](https://expressjs.com/)
-
-## bolt.new -> genrate UI examples
-
-Can you create a UI prototype for a desktop web app called finance-tracker. It has to be modern, clean and clear from a UX/UI perspective.
-It allows the user to:
-
-- Login
-- Connect to a list of available banks, to track your current balance, investments, etc.
-- Index funds: list, search, filter, add to whishlist, show live prices/data
-- Stocks: list, sort, filter, show live prices/data
-- Wishlists: create, read, update, delete
-- AI powered portfolio suggestions
-- Live finance news feed
