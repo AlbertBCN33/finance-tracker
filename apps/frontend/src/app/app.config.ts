@@ -41,6 +41,9 @@ export const appConfig: ApplicationConfig = {
     providePrimeNG({
       theme: {
         preset: DEFAULT_PRESET,
+        options: {
+          darkModeSelector: 'system',
+        },
       },
     }),
     provideAnimations(),

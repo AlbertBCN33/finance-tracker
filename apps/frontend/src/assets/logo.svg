@@ -1,44 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <defs>
-    <linearGradient id="tealGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0ABAB5"/>
-      <stop offset="100%" stop-color="#00E5CC"/>
-    </linearGradient>
-    <linearGradient id="navyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1B2A4A"/>
-      <stop offset="100%" stop-color="#0F1B33"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Bold "A" shape — two legs forming a mountain/peak -->
-  <polygon
-    points="100,18 28,180 58,180 100,82 142,180 172,180"
-    fill="url(#navyGrad)"
-  />
-
-  <!-- Upward-sloping trend line replacing the crossbar -->
-  <line
-    x1="62" y1="140"
-    x2="138" y2="108"
-    stroke="url(#tealGlow)"
-    stroke-width="10"
-    stroke-linecap="round"
-  />
-
-  <!-- Growth arrow head at end of trend line -->
-  <polygon
-    points="138,108 126,118 132,104"
-    fill="#00E5CC"
-  />
-  <line
-    x1="138" y1="108"
-    x2="148" y2="96"
-    stroke="url(#tealGlow)"
-    stroke-width="10"
-    stroke-linecap="round"
-  />
-  <polygon
-    points="148,96 134,100 142,88"
-    fill="#00E5CC"
-  />
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 15L85 85H72L50 41L28 85H15L50 15Z" fill="#001F3F"/>
+  
+  <path d="M32 68L44 58L55 64L68 50L72 54" stroke="#00CED1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <path d="M66 50H68V52M68 50L72 46" stroke="#00CED1" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

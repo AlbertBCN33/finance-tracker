@@ -1,14 +1,4 @@
-// PrimeNG theme overrides
-$bodyTextColor: #e0e6ed;
-$primaryColor: #00d1b2;
-$highlightTextColor: #ffffff;
-
 @mixin dark-theme {
-	body {
-		background-color: #1e1e2f;
-		color: $bodyTextColor;
-	}
+  --surface-background: #1e1e2f;
+  --text-color: #e0e6ed;
 }
-
-// Import the actual PrimeNG theme
-@import 'primeng/resources/themes/lara-dark-blue/theme.scss';
