@@ -1,7 +1,7 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 
 const config: ModuleFederationConfig = {
-  name: '@finance-tracker/institutions',
+  name: 'institutions',
   exposes: {
     './Routes': 'apps/institutions/src/app/remote-entry/entry.routes.ts',
   },

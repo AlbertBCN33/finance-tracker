@@ -9,7 +9,6 @@ import {
   withInterceptors,
 } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideTranslateService, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { providePrimeNG } from 'primeng/config';
@@ -51,7 +50,6 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
-    provideAnimations(),
     /* Firebase */
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
