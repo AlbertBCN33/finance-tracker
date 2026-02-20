@@ -18,7 +18,13 @@
       "@finance-tracker/data-access": ["libs/data-access/src/index.ts"],
       "@finance-tracker/models": ["libs/models/src/index.ts"],
       "@finance-tracker/ui": ["libs/ui/src/index.ts"],
-      "@finance-tracker/utils": ["libs/utils/src/index.ts"]
+      "@finance-tracker/utils": ["libs/utils/src/index.ts"],
+      "@finance-tracker/institutions/Routes": [
+        "apps/institutions/src/app/remote-entry/entry.routes.ts"
+      ],
+      "@finance-tracker/investments/Routes": [
+        "apps/investments/src/app/remote-entry/entry.routes.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

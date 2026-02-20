@@ -86,7 +86,7 @@ npx nx test frontend
 npx nx test backend
 
 # E2E
-npx nx e2e frontend-e2e
+npx nx e2e shell-e2e
 ```
 
 ## Useful links
