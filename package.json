@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:frontend": "npx nx serve frontend",
+    "start:shell": "npx nx serve shell",
+    "start:institutions": "npx nx serve institutions",
+    "start:investments": "npx nx serve investments",
+    "start:frontends": "npx nx run-many -t serve -p shell institutions investments",
     "start:backend": "npx nx serve backend"
   },
   "private": true,
@@ -15,18 +18,19 @@
     "@angular/compiler-cli": "~21.1.5",
     "@angular/language-service": "~21.1.5",
     "@eslint/js": "^9.8.0",
-    "@nx/angular": "^21.0.3",
+    "@module-federation/enhanced": "^0.9.0",
     "@nx/devkit": "21.0.3",
     "@nx/esbuild": "21.0.3",
     "@nx/eslint": "21.0.3",
     "@nx/eslint-plugin": "21.0.3",
     "@nx/express": "^21.0.3",
     "@nx/jest": "21.0.3",
-    "@nx/js": "^21.0.3",
+    "@nx/js": "21.2.0",
+    "@nx/module-federation": "21.2.0",
     "@nx/node": "21.0.3",
     "@nx/playwright": "21.0.3",
-    "@nx/web": "21.0.3",
-    "@nx/webpack": "21.0.3",
+    "@nx/web": "21.2.0",
+    "@nx/webpack": "21.2.0",
     "@nx/workspace": "21.0.3",
     "@playwright/test": "^1.36.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
@@ -39,7 +43,7 @@
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
     "@types/node": "18.16.9",
-    "@typescript-eslint/utils": "^8.19.0",
+    "@typescript-eslint/utils": "^8.29.0",
     "angular-eslint": "^21.2.0",
     "esbuild": "^0.19.2",
     "eslint": "^9.8.0",
@@ -88,6 +92,7 @@
     "rxjs": "~7.8.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
-    "zone.js": "~0.15.0"
+    "zone.js": "~0.15.0",
+    "@nx/angular": "^21.0.3"
   }
 }

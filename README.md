@@ -33,6 +33,7 @@ Typography: Montserrat (Headings) / Inter (Data & UI).
 ## 🚀 Key Features (MVP)
 
 - **Unified Dashboard:** Aggregated Net Worth across all linked institutions.
+- **Burn-Rate Logic:** Automatic calculation of financial "Runway" based on real spending.
 - **Assets search:** Search assets information (Stocks, ETFs, Index Funds)
 - **The Wishlist:** Real-time stock tracking with "Target Price" alerts.
 - **Market Pulse News:** Ticker-specific news feed tailored to the user's interests.
@@ -85,7 +86,7 @@ npx nx test frontend
 npx nx test backend
 
 # E2E
-npx nx e2e frontend-e2e
+npx nx e2e shell-e2e
 ```
 
 ## Useful links

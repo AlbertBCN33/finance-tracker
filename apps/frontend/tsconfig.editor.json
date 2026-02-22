@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": [
-    "src/**/*.ts",
-    "../../libs/data-access/src/lib/api-client.service.ts"
-  ],
-  "compilerOptions": {},
-  "exclude": ["jest.config.ts", "src/**/*.test.ts", "src/**/*.spec.ts"]
-}

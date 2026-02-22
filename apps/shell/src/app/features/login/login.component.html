@@ -1,0 +1,88 @@
+<div class="login-container">
+  <div class="login-box">
+    <!-- Header -->
+    <div class="login-box__header">
+      <img [src]="logoSrc" alt="Logo Altum Finance" />
+      <h1>{{ 'LOGIN.PAGE_TITLE' | translate }}</h1>
+      <p>{{ 'LOGIN.PAGE_SUBTITLE' | translate }}</p>
+    </div>
+
+    <!-- Login: Email + Password -->
+    <div class="login-box__user">
+      <form [formGroup]="form" (ngSubmit)="submit($event)">
+        <!-- Email -->
+        <lib-ui-input-text
+          [form]="form"
+          controlName="email"
+          id="email"
+          label="LOGIN.FORM_FIELD.email"
+          placeholder="LOGIN.FORM_FIELD.email"
+        />
+
+        <!-- Password-->
+        <lib-ui-input-password
+          [form]="form"
+          controlName="password"
+          id="password"
+          label="LOGIN.FORM_FIELD.password"
+          placeholder="LOGIN.FORM_FIELD.password"
+          [toggleMask]="true"
+          cssClass="mt-4 mb-4"
+        />
+
+        <!-- Sign in -->
+        <p-button
+          [label]="'LOGIN.BUTTON_SIGNIN' | translate"
+          type="submit"
+          [rounded]="true"
+          size="large"
+          [fluid]="true"
+          tabindex="0"
+          styleClass="mt-4"
+          [disabled]="form.disabled"
+          [loading]="form.disabled"
+        />
+        @if(showUserError) {
+        <lib-ui-message message="LOGIN.ERROR_SIGNIN" severity="error" />
+        }
+      </form>
+
+      <!-- Sign up -->
+      <p>
+        {{ 'LOGIN.CREATE_ACCOUNT' | translate }}
+        <p-button
+          [label]="'LOGIN.BUTTON_SIGNUP' | translate"
+          variant="text"
+          [rounded]="true"
+          size="small"
+          tabindex="1"
+        />
+      </p>
+    </div>
+
+    <p-divider align="center">
+      <b>{{ 'LOGIN.DIVIDER' | translate }}</b>
+    </p-divider>
+
+    <!-- Login: Google -->
+    <div class="login-box__google">
+      <p-button
+        [label]="'LOGIN.BUTTON_GOOGLE' | translate"
+        variant="outlined"
+        severity="secondary"
+        [rounded]="true"
+        size="large"
+        [fluid]="true"
+        tabindex="2"
+        (onClick)="loginWithGoogle()"
+      >
+        <ng-template #icon>
+          <img [src]="googleIconSrc" width="25" alt="Google icon logo" />
+        </ng-template>
+      </p-button>
+      @if(showGoogleError) {
+      <lib-ui-message message="LOGIN.ERROR_GOOGLE" severity="error" />
+      }
+    </div>
+  </div>
+</div>

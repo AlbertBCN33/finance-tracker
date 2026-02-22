@@ -48,4 +48,4 @@ Thumbs.db
 
 .angular
 /apps/backend/.env
-/apps/frontend/src/environments/environment-local.ts
+/apps/shell/src/environments/environment-local.ts
