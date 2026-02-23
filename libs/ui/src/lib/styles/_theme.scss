@@ -1,6 +1,6 @@
-@import 'primeicons/primeicons.css';
-@import './_theme-light';
-@import './_theme-dark';
+@use 'primeicons/primeicons.css';
+@use './theme-light' as *;
+@use './theme-dark' as *;
 
 :root {
   --font-family: 'Segoe UI', 'Roboto', sans-serif;
