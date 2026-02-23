@@ -23,6 +23,7 @@
           }
         ],
         "styles": [
+          "node_modules/primeicons/primeicons.css",
           "libs/ui/src/lib/styles/main.scss",
           "apps/shell/src/styles.scss"
         ],
