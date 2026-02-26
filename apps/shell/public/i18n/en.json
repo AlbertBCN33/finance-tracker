@@ -13,6 +13,8 @@
   "VALIDATIONS_MSG.pattern": "Incorrect pattern.",
   "LOGIN.PAGE_TITLE": "Welcome back!",
   "LOGIN.PAGE_SUBTITLE": "Sign in to continue",
+  "LOGIN.BRAND_NAME": "Altum Finance",
+  "LOGIN.BRAND_CATCHPHRASE": "Reach your financial peak",
   "LOGIN.FORM_FIELD.email": "Email",
   "LOGIN.FORM_FIELD.password": "Password",
   "LOGIN.BUTTON_SIGNIN": "Sign in",

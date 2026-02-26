@@ -1,25 +1,112 @@
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 100vw;
+.login-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   min-height: 100vh;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Brand panel ──────────────────────────────────────────────────────────────
+
+.login-split__brand {
+  background: linear-gradient(160deg, #0d1b3e 0%, #0a2640 55%, #072136 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.login-split__brand-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-logo {
+  width: 160px;
+  height: auto;
+  margin-bottom: 2.5rem;
+}
+
+.brand-name {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+
+.brand-tagline {
+  font-size: 1.75rem;
+  color: #00d4aa;
+  font-style: italic;
+  margin: 0;
+}
+
+.brand-accent {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 212, 170, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.brand-accent--1 {
+  width: 450px;
+  height: 450px;
+  top: -120px;
+  right: -100px;
+}
+
+.brand-accent--2 {
+  width: 350px;
+  height: 350px;
+  bottom: -100px;
+  left: -80px;
+}
+
+.brand-accent--3 {
+  width: 220px;
+  height: 220px;
+  bottom: 28%;
+  right: 8%;
+}
+
+// ── Form panel ───────────────────────────────────────────────────────────────
+
+.login-split__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-background);
+  padding: 2rem;
 }
 
 .login-box {
   width: 100%;
-  max-width: 600px;
-  background-color: #ffffff;
-  padding: 5rem;
-  border-radius: var(--p-border-radius-xl);
+  max-width: 420px;
 }
 
 .login-box__header {
-  text-align: center;
+  margin-bottom: 2rem;
 
-  img {
-    width: 400px;
-    height: auto;
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    color: #6b7280;
+    margin: 0;
   }
 }
 
@@ -31,8 +118,55 @@
 
 .login-box__google {
   text-align: center;
+
+  ::ng-deep .btn-google {
+    background: #ffffff;
+  }
 }
 
 lib-ui-message {
   text-align: left;
+}
+
+// ── Mobile brand header ───────────────────────────────────────────────────────
+
+.login-box__mobile-brand {
+  display: none;
+  text-align: center;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.mobile-brand__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  margin-bottom: 0.25rem;
+}
+
+.mobile-brand__logo {
+  width: 52px;
+  height: auto;
+}
+
+.mobile-brand__name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d1b3e;
+}
+
+.mobile-brand__tagline {
+  font-size: 1rem;
+  color: #00d4aa;
+  font-style: italic;
+  margin: 0 0 1.25rem;
+}
+
+.mobile-brand__rule {
+  height: 1px;
+  background: #e5e7eb;
 }

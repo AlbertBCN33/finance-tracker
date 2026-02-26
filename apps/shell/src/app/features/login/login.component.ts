@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { AuthService } from '@finance-tracker/data-access';
 import { ButtonModule } from 'primeng/button';
@@ -17,12 +16,10 @@ import {
   UiInputTextComponent,
   UiMessageComponent,
 } from '@finance-tracker/ui';
-import { FormFieldAddon, FormFieldAddonType } from '@finance-tracker/models';
 
 @Component({
   selector: 'shell-login',
   imports: [
-    CommonModule,
     TranslatePipe,
     ReactiveFormsModule,
     ButtonModule,
@@ -33,65 +30,38 @@ import { FormFieldAddon, FormFieldAddonType } from '@finance-tracker/models';
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-  private router = inject(Router);
-  private authService = inject(AuthService);
+  private readonly router = inject(Router);
+  private readonly authService = inject(AuthService);
+  private readonly fb = new FormBuilder();
 
-  // Form
-  private fb = new FormBuilder();
-  form: FormGroup = this.fb.group({
+  protected readonly form: FormGroup = this.fb.group({
     email: new FormControl(undefined, [Validators.required, Validators.email]),
     password: new FormControl(undefined, [Validators.required]),
   });
 
-  // Icons
-  logoSrc = 'img/logo-icon.svg';
-  googleIconSrc = 'img/google-icon-logo.svg';
-  emailAddon: FormFieldAddon = {
-    type: FormFieldAddonType.ICON,
-    icon: 'pi pi-user',
-  };
-  passwordAddon: FormFieldAddon = {
-    type: FormFieldAddonType.ICON,
-    icon: 'pi pi-key',
-  };
+  protected readonly logoSrc = 'img/logo-icon.svg';
+  protected readonly googleIconSrc = 'img/google-icon-logo.svg';
+  protected readonly showUserError = signal(false);
+  protected readonly showGoogleError = signal(false);
 
-  // Control vars
-  isSubmitting = false;
-  showGoogleError = false;
-  showUserError = false;
-
-  updateSubmit = (submitting: boolean) => {
-    if (submitting) this.form.disable();
-    else this.form.enable();
-  };
-
-  submit = (_event: SubmitEvent) => {
-    this.updateSubmit(true);
-    this.showUserError = false;
+  submit(_event: SubmitEvent): void {
+    this.form.disable();
+    this.showUserError.set(false);
     this.authService
       .login(this.form.get('email')?.value, this.form.get('password')?.value)
-      .then((_res) => {
-        this.router.navigate(['/']);
-      })
-      .catch((_error) => {
-        this.showUserError = true;
-      })
-      .finally(() => {
-        this.updateSubmit(false);
-      });
-  };
+      .then(() => this.router.navigate(['/']))
+      .catch(() => this.showUserError.set(true))
+      .finally(() => this.form.enable());
+  }
 
-  loginWithGoogle = async () => {
-    this.showGoogleError = false;
+  loginWithGoogle(): void {
+    this.showGoogleError.set(false);
     this.authService
       .loginWithGoogle()
-      .then((_res) => {
-        this.router.navigate(['/']);
-      })
-      .catch((_error) => {
-        this.showGoogleError = true;
-      });
-  };
+      .then(() => this.router.navigate(['/']))
+      .catch(() => this.showGoogleError.set(true));
+  }
 }

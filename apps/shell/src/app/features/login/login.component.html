@@ -1,88 +1,108 @@
-<div class="login-container">
-  <div class="login-box">
-    <!-- Header -->
-    <div class="login-box__header">
-      <img [src]="logoSrc" alt="Logo Altum Finance" />
-      <h1>{{ 'LOGIN.PAGE_TITLE' | translate }}</h1>
-      <p>{{ 'LOGIN.PAGE_SUBTITLE' | translate }}</p>
+<div class="login-split">
+  <!-- Brand panel -->
+  <div class="login-split__brand" aria-hidden="true">
+    <div class="brand-accent brand-accent--1"></div>
+    <div class="brand-accent brand-accent--2"></div>
+    <div class="brand-accent brand-accent--3"></div>
+    <div class="login-split__brand-content">
+      <img [src]="logoSrc" alt="" class="brand-logo" />
+      <h1 class="brand-name">{{ 'LOGIN.BRAND_NAME' | translate }}</h1>
+      <p class="brand-tagline">{{ 'LOGIN.BRAND_CATCHPHRASE' | translate }}</p>
     </div>
+  </div>
 
-    <!-- Login: Email + Password -->
-    <div class="login-box__user">
-      <form [formGroup]="form" (ngSubmit)="submit($event)">
-        <!-- Email -->
-        <lib-ui-input-text
-          [form]="form"
-          controlName="email"
-          id="email"
-          label="LOGIN.FORM_FIELD.email"
-          placeholder="LOGIN.FORM_FIELD.email"
-        />
+  <!-- Form panel -->
+  <div class="login-split__form">
+    <div class="login-box">
+      <!-- Mobile brand header (hidden on desktop) -->
+      <div class="login-box__mobile-brand">
+        <div class="mobile-brand__row">
+          <img [src]="logoSrc" alt="" class="mobile-brand__logo" />
+          <span class="mobile-brand__name">{{
+            'LOGIN.BRAND_NAME' | translate
+          }}</span>
+        </div>
+        <p class="mobile-brand__tagline">
+          {{ 'LOGIN.BRAND_CATCHPHRASE' | translate }}
+        </p>
+        <div class="mobile-brand__rule"></div>
+      </div>
 
-        <!-- Password-->
-        <lib-ui-input-password
-          [form]="form"
-          controlName="password"
-          id="password"
-          label="LOGIN.FORM_FIELD.password"
-          placeholder="LOGIN.FORM_FIELD.password"
-          [toggleMask]="true"
-          cssClass="mt-4 mb-4"
-        />
+      <div class="login-box__header">
+        <h2>{{ 'LOGIN.PAGE_TITLE' | translate }}</h2>
+        <p>{{ 'LOGIN.PAGE_SUBTITLE' | translate }}</p>
+      </div>
 
-        <!-- Sign in -->
+      <div class="login-box__user">
+        <form [formGroup]="form" (ngSubmit)="submit($event)">
+          <lib-ui-input-text
+            [form]="form"
+            controlName="email"
+            id="email"
+            label="LOGIN.FORM_FIELD.email"
+            placeholder="LOGIN.FORM_FIELD.email"
+          />
+          <lib-ui-input-password
+            [form]="form"
+            controlName="password"
+            id="password"
+            label="LOGIN.FORM_FIELD.password"
+            placeholder="LOGIN.FORM_FIELD.password"
+            [toggleMask]="true"
+            cssClass="mt-4 mb-4"
+          />
+          <p-button
+            [label]="'LOGIN.BUTTON_SIGNIN' | translate"
+            type="submit"
+            [rounded]="true"
+            size="large"
+            [fluid]="true"
+            tabindex="0"
+            styleClass="mt-4"
+            [disabled]="form.disabled"
+            [loading]="form.disabled"
+          />
+          @if (showUserError()) {
+          <lib-ui-message message="LOGIN.ERROR_SIGNIN" severity="error" />
+          }
+        </form>
+
+        <p>
+          {{ 'LOGIN.CREATE_ACCOUNT' | translate }}
+          <p-button
+            [label]="'LOGIN.BUTTON_SIGNUP' | translate"
+            variant="text"
+            [rounded]="true"
+            size="small"
+            tabindex="1"
+          />
+        </p>
+      </div>
+
+      <p-divider align="center">
+        <b>{{ 'LOGIN.DIVIDER' | translate }}</b>
+      </p-divider>
+
+      <div class="login-box__google">
         <p-button
-          [label]="'LOGIN.BUTTON_SIGNIN' | translate"
-          type="submit"
+          [label]="'LOGIN.BUTTON_GOOGLE' | translate"
+          variant="outlined"
+          severity="secondary"
           [rounded]="true"
           size="large"
           [fluid]="true"
-          tabindex="0"
-          styleClass="mt-4"
-          [disabled]="form.disabled"
-          [loading]="form.disabled"
-        />
-        @if(showUserError) {
-        <lib-ui-message message="LOGIN.ERROR_SIGNIN" severity="error" />
+          tabindex="2"
+          styleClass="btn-google"
+          (onClick)="loginWithGoogle()"
+        >
+          <ng-template #icon>
+            <img [src]="googleIconSrc" width="25" alt="Google icon logo" />
+          </ng-template>
+        </p-button>
+        @if (showGoogleError()) {
+        <lib-ui-message message="LOGIN.ERROR_GOOGLE" severity="error" />
         }
-      </form>
-
-      <!-- Sign up -->
-      <p>
-        {{ 'LOGIN.CREATE_ACCOUNT' | translate }}
-        <p-button
-          [label]="'LOGIN.BUTTON_SIGNUP' | translate"
-          variant="text"
-          [rounded]="true"
-          size="small"
-          tabindex="1"
-        />
-      </p>
-    </div>
-
-    <p-divider align="center">
-      <b>{{ 'LOGIN.DIVIDER' | translate }}</b>
-    </p-divider>
-
-    <!-- Login: Google -->
-    <div class="login-box__google">
-      <p-button
-        [label]="'LOGIN.BUTTON_GOOGLE' | translate"
-        variant="outlined"
-        severity="secondary"
-        [rounded]="true"
-        size="large"
-        [fluid]="true"
-        tabindex="2"
-        (onClick)="loginWithGoogle()"
-      >
-        <ng-template #icon>
-          <img [src]="googleIconSrc" width="25" alt="Google icon logo" />
-        </ng-template>
-      </p-button>
-      @if(showGoogleError) {
-      <lib-ui-message message="LOGIN.ERROR_GOOGLE" severity="error" />
-      }
+      </div>
     </div>
   </div>
 </div>

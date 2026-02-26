@@ -15,6 +15,11 @@ export const DEFAULT_PRESET = definePreset(Aura, {
         },
       },
     },
+    divider: {
+      content: {
+        background: 'transparent',
+      },
+    },
     inputtext: {},
   },
 });
