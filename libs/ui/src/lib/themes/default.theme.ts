@@ -11,7 +11,7 @@ export const DEFAULT_PRESET = definePreset(Aura, {
     button: {
       root: {
         primary: {
-          background: '#143157',
+          background: 'var(--color-brand-navy-deep)',
         },
       },
     },

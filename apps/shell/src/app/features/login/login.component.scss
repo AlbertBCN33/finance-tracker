@@ -11,7 +11,7 @@
 // ── Brand panel ──────────────────────────────────────────────────────────────
 
 .login-split__brand {
-  background: linear-gradient(160deg, #0d1b3e 0%, #0a2640 55%, #072136 100%);
+  background: linear-gradient(160deg, var(--color-brand-navy) 0%, var(--color-brand-navy-mid) 55%, var(--color-brand-navy-dark) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,14 +39,14 @@
 .brand-name {
   font-size: 4rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-white);
   margin: 0 0 1rem;
   letter-spacing: -0.02em;
 }
 
 .brand-tagline {
   font-size: 1.75rem;
-  color: #00d4aa;
+  color: var(--color-brand-teal);
   font-style: italic;
   margin: 0;
 }
@@ -54,7 +54,7 @@
 .brand-accent {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 212, 170, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--color-brand-teal-glow) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -105,7 +105,7 @@
   }
 
   p {
-    color: #6b7280;
+    color: var(--color-text-muted);
     margin: 0;
   }
 }
@@ -120,7 +120,7 @@
   text-align: center;
 
   ::ng-deep .btn-google {
-    background: #ffffff;
+    background: var(--color-white);
   }
 }
 
@@ -156,17 +156,17 @@ lib-ui-message {
 .mobile-brand__name {
   font-size: 2rem;
   font-weight: 700;
-  color: #0d1b3e;
+  color: var(--color-brand-navy);
 }
 
 .mobile-brand__tagline {
   font-size: 1rem;
-  color: #00d4aa;
+  color: var(--color-brand-teal);
   font-style: italic;
   margin: 0 0 1.25rem;
 }
 
 .mobile-brand__rule {
   height: 1px;
-  background: #e5e7eb;
+  background: var(--color-border);
 }

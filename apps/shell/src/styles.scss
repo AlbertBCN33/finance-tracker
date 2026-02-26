@@ -1,3 +1,17 @@
+/* ─── Brand tokens ──────────────────────────────────────────────────────── */
+
+:root {
+  --color-brand-navy: #0d1b3e;
+  --color-brand-navy-mid: #0a2640;
+  --color-brand-navy-dark: #072136;
+  --color-brand-navy-deep: #143157;
+  --color-brand-teal: #00d4aa;
+  --color-brand-teal-glow: rgba(0, 212, 170, 0.12);
+  --color-white: #ffffff;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+}
+
 /* ─── Layout utilities ──────────────────────────────────────────────────── */
 
 .grid {
