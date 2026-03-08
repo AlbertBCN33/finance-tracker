@@ -2,11 +2,13 @@ import { inject, Injectable } from '@angular/core';
 import {
   Auth,
   browserSessionPersistence,
+  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   idToken,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
   user,
   User,
 } from '@angular/fire/auth';
@@ -23,6 +25,16 @@ export class AuthService {
     this.user$ = user(this.auth);
     this.token$ = idToken(this.auth);
   }
+
+  register = async (name: string, email: string, password: string) => {
+    const credential = await createUserWithEmailAndPassword(
+      this.auth,
+      email,
+      password
+    );
+    await updateProfile(credential.user, { displayName: name });
+    return credential;
+  };
 
   login = async (email: string, password: string) =>
     signInWithEmailAndPassword(this.auth, email, password);

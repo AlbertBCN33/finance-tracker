@@ -3,7 +3,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { AuthService } from '@finance-tracker/data-access';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {
   FormBuilder,
   FormControl,
@@ -22,6 +22,7 @@ import {
   imports: [
     TranslatePipe,
     ReactiveFormsModule,
+    RouterLink,
     ButtonModule,
     DividerModule,
     UiInputTextComponent,

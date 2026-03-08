@@ -8,6 +8,11 @@ export const appRoutes: Route[] = [
       import('./features/login/login.routes').then((m) => m.routes),
   },
   {
+    path: 'signup',
+    loadChildren: () =>
+      import('./features/signup/signup.routes').then((m) => m.routes),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./features/main/main.routes').then((m) => m.routes),
