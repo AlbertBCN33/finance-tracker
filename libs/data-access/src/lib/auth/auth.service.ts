@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   idToken,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -35,6 +36,9 @@ export class AuthService {
     await updateProfile(credential.user, { displayName: name });
     return credential;
   };
+
+  resetPassword = async (email: string) =>
+    sendPasswordResetEmail(this.auth, email);
 
   login = async (email: string, password: string) =>
     signInWithEmailAndPassword(this.auth, email, password);

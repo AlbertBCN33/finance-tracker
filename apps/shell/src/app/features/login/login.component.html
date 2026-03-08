@@ -49,8 +49,17 @@
             label="LOGIN.FORM_FIELD.password"
             placeholder="LOGIN.FORM_FIELD.password"
             [toggleMask]="true"
-            cssClass="mt-4 mb-4"
+            cssClass="mt-4"
           />
+          <div class="login-box__forgot">
+            <p-button
+              [label]="'LOGIN.BUTTON_FORGOT_PASSWORD' | translate"
+              variant="text"
+              size="small"
+              tabindex="0"
+              routerLink="/reset-password"
+            />
+          </div>
           <p-button
             [label]="'LOGIN.BUTTON_SIGNIN' | translate"
             type="submit"

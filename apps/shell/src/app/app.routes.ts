@@ -13,6 +13,13 @@ export const appRoutes: Route[] = [
       import('./features/signup/signup.routes').then((m) => m.routes),
   },
   {
+    path: 'reset-password',
+    loadChildren: () =>
+      import('./features/reset-password/reset-password.routes').then(
+        (m) => m.routes
+      ),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./features/main/main.routes').then((m) => m.routes),
