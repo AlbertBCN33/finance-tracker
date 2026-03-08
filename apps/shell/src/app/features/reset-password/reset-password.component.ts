@@ -40,7 +40,7 @@ export class ResetPasswordComponent {
   });
 
   protected readonly logoSrc = 'img/logo-icon.svg';
-  protected readonly emailSent = signal(true);
+  protected readonly emailSent = signal(false);
   protected readonly showError = signal(false);
 
   submit(_event: SubmitEvent): void {
